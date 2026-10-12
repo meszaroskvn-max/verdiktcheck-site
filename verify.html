@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="hu">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Tanúsítvány ellenőrzése – VERDIKT Check</title>
+<meta name="description" content="Ellenőrizd egy VERDIKT Check tanúsítvány kódját.">
+<link rel="stylesheet" href="style.css">
+<script src="config.js"></script>
+<style>
+.vcard{position:relative;overflow:hidden;background:radial-gradient(110% 90% at 100% 0%,rgba(200,240,74,.18),rgba(200,240,74,0) 60%),var(--surface);border:1.5px solid rgba(200,240,74,.5);border-radius:22px;padding:20px;margin:18px 0}
+.vtop{display:flex;gap:16px;align-items:center}
+.vphoto{width:96px;height:96px;border-radius:16px;object-fit:cover;background:#1F2228;flex-shrink:0}
+.vcat{font-family:ui-monospace,Menlo,monospace;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.vname{font-size:22px;font-weight:800;line-height:1.2;margin:2px 0 4px;color:var(--fg)}
+.verdict{margin:18px 0 0;background:var(--lime);color:var(--ink);border-radius:18px;padding:16px 18px}
+.verdict small{font-family:ui-monospace,Menlo,monospace;font-size:12px;letter-spacing:.1em;font-weight:700}
+.verdict b{display:block;font-size:30px;line-height:1.1;margin:4px 0 10px;letter-spacing:.01em}
+.bar{height:10px;border-radius:999px;background:rgba(14,15,18,.2);overflow:hidden}
+.bar i{display:block;height:100%;background:var(--ink);border-radius:999px}
+.rows{margin-top:14px}
+.row{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid var(--line);font-size:15px}
+.row span{color:var(--muted)}
+.row b{color:var(--fg);text-align:right}
+.ok{display:inline-flex;align-items:center;gap:8px;background:rgba(200,240,74,.12);color:var(--lime);border-radius:999px;padding:6px 12px;font-weight:700;font-size:14px}
+.bad{background:rgba(255,90,78,.12);border:1px solid rgba(255,90,78,.45);border-radius:16px;padding:16px 18px;margin:18px 0}
+form{display:flex;gap:8px;margin:14px 0}
+input{flex:1;min-width:0;height:48px;border-radius:12px;border:1px solid var(--line);background:var(--surface);color:var(--fg);padding:0 14px;font:600 17px ui-monospace,Menlo,monospace;letter-spacing:.08em;text-transform:uppercase}
+button,.cta{height:48px;border-radius:12px;border:0;background:var(--lime);color:var(--ink);font-weight:800;font-size:15px;padding:0 18px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;text-decoration:none}
+.cta{width:100%;margin-top:8px}
+.note{font-size:13px;color:var(--muted);line-height:1.5}
+[hidden]{display:none!important}
+</style>
+</head>
+<body>
+<main>
+<div class="brand">VERDIKT <b>CHECK</b></div>
+<h1 id="t-title">Tanúsítvány ellenőrzése</h1>
+<p class="muted" id="t-sub">Írd be vagy szkenneld be a tanúsítvány kódját (VC-…), és megmutatjuk, mit állapított meg a VERDIKT Check.</p>
+
+<form id="f"><input id="code" maxlength="10" placeholder="VC-XXXXXXX" autocomplete="off" aria-label="Kód"><button id="t-go" type="submit">Ellenőrzés</button></form>
+
+<p class="muted" id="loading" hidden>…</p>
+<div class="bad" id="err" hidden></div>
+
+<div class="vcard" id="res" hidden>
+  <span class="ok" id="t-valid">✓ Érvényes tanúsítvány</span>
+  <div class="vtop" style="margin-top:14px">
+    <img class="vphoto" id="photo" alt="" hidden>
+    <div><div class="vcat" id="cat"></div><div class="vname" id="name"></div><div class="muted" id="summary"></div></div>
+  </div>
+  <div class="verdict"><small id="t-verdict">VERDIKT</small><b id="verdict"></b><div style="display:flex;justify-content:space-between;font-size:13px;font-weight:700;margin-bottom:6px"><span id="t-conf">Biztonság</span><span id="conf"></span></div><div class="bar"><i id="bar"></i></div></div>
+  <div class="rows">
+    <div class="row"><span id="t-code">Tanúsítvány kódja</span><b id="rcode"></b></div>
+    <div class="row"><span id="t-date">Kiállítva</span><b id="date"></b></div>
+  </div>
+  <p class="note" id="t-note">Ez a VERDIKT Check fotók alapján készült AI-becslése, nem hivatalos hitelesítés. A tanúsítvány csak arra a termékre vonatkozik, amelyről a fotók készültek – vásárlás előtt nézd meg élőben is.</p>
+</div>
+
+<div class="card">
+  <b id="t-app">Te is ellenőriznél egy terméket?</b>
+  <p class="muted" id="t-app-sub" style="margin:6px 0 0">Fotózd le, és a VERDIKT Check egy perc alatt megmondja, eredetinek tűnik-e.</p>
+  <a class="cta" id="play" href="#">VERDIKT Check letöltése</a>
+</div>
+<p class="muted"><a href="privacy.html" id="t-privacy">Adatvédelem</a> · <a href="terms.html" id="t-terms">Felhasználási feltételek</a></p>
+</main>
+<script>
+(function () {
+  var hu = /^hu\b/i.test(navigator.language || 'hu');
+  var T = hu ? {} : {
+    'title':'Verify a certificate', 'sub':'Type or scan the certificate code (VC-…) to see what VERDIKT Check found.', 'go':'Verify',
+    'valid':'✓ Valid certificate', 'verdict':'VERDICT', 'conf':'Confidence', 'code':'Certificate code', 'date':'Issued',
+    'note':'This is VERDIKT Check’s AI estimate from photos, not an official authentication. The certificate only covers the item in the photos – check it in person before you buy.',
+    'app':'Want to check an item yourself?', 'app-sub':'Snap it and VERDIKT Check tells you within a minute whether it looks authentic.', 'privacy':'Privacy', 'terms':'Terms of use'
+  };
+  if (!hu) { document.documentElement.lang = 'en'; document.title = 'Verify a certificate – VERDIKT Check'; }
+  Object.keys(T).forEach(function (k) { var el = document.getElementById('t-' + k); if (el) el.textContent = T[k]; });
+  document.getElementById('play').textContent = hu ? 'VERDIKT Check letöltése' : 'Get VERDIKT Check';
+  var M = hu
+    ? { auth:'EREDETINEK ÍTÉLT', notfound:'Ezzel a kóddal nincs érvényes tanúsítvány. Lehet, hogy elírtad, vagy a tulajdonosa törölte az ellenőrzést.', bad:'A kód formátuma: VC- és 7 karakter (például VC-8F3K2QA).', net:'Most nem sikerült elérni a szervert. Próbáld újra kicsit később.', cfg:'Ez az oldal még nincs beállítva (config.js).', loading:'Ellenőrzés…' }
+    : { auth:'RATED AUTHENTIC', notfound:'There is no valid certificate with this code. It may be mistyped, or the owner deleted the check.', bad:'Codes look like VC- followed by 7 characters (for example VC-8F3K2QA).', net:'We couldn’t reach the server right now. Please try again a little later.', cfg:'This page isn’t set up yet (config.js).', loading:'Checking…' };
+  var CAT = hu ? { shoes:'Cipő', hoodie:'Pulóver', tshirt:'Póló', jacket:'Kabát', bag:'Táska', cap:'Sapka', other:'Egyéb' } : { shoes:'Shoes', hoodie:'Hoodie', tshirt:'T-shirt', jacket:'Jacket', bag:'Bag', cap:'Cap', other:'Other' };
+  var S = window.SITE || {};
+  var play = document.getElementById('play'); play.href = S.playUrl || '#';
+  var $ = function (id) { return document.getElementById(id); };
+  function show(id) { ['loading', 'err', 'res'].forEach(function (x) { $(x).hidden = x !== id; }); }
+  function fail(msg) { $('err').textContent = msg; show('err'); }
+  function check(code) {
+    code = String(code || '').trim().toUpperCase();
+    $('code').value = code;
+    if (!/^VC-[A-Z0-9]{7}$/.test(code)) return fail(M.bad);
+    if (!S.supabaseUrl || /IDE_IRD/.test(S.supabaseUrl)) return fail(M.cfg);
+    $('loading').textContent = M.loading; show('loading');
+    var headers = { 'Content-Type':'application/json' };
+    if (S.anonKey && !/IDE_IRD/.test(S.anonKey)) headers.apikey = S.anonKey;
+    fetch(S.supabaseUrl.replace(/\/+$/, '') + '/functions/v1/api', { method:'POST', headers:headers, body:JSON.stringify({ action:'verify', code:code }) })
+      .then(function (r) { return r.json().then(function (j) { return { status:r.status, body:j }; }); })
+      .then(function (r) {
+        if (r.status === 404) return fail(M.notfound);
+        if (r.status !== 200 || !r.body || !r.body.cert) return fail(M.net);
+        var c = r.body.cert;
+        if (c.verdict !== 'authentic') return fail(M.notfound);
+        $('cat').textContent = CAT[c.category] || CAT.other;
+        $('name').textContent = [c.brand, c.model].filter(Boolean).join(' ') || '—';
+        $('summary').textContent = c.summary || '';
+        $('verdict').textContent = M.auth;
+        var conf = Math.max(0, Math.min(100, +c.confidence || 0));
+        $('conf').textContent = conf + '%'; $('bar').style.width = conf + '%';
+        $('rcode').textContent = c.code;
+        try { $('date').textContent = new Intl.DateTimeFormat(hu ? 'hu-HU' : 'en-GB', { year:'numeric', month:'long', day:'numeric' }).format(new Date(c.createdAt)); } catch (e) { $('date').textContent = ''; }
+        if (typeof c.photo === 'string' && c.photo.indexOf('data:image/jpeg;base64,') === 0) { $('photo').src = c.photo; $('photo').hidden = false; } else $('photo').hidden = true;
+        show('res');
+        try { history.replaceState(null, '', '?c=' + encodeURIComponent(c.code)); } catch (e) {}
+      })
+      .catch(function () { fail(M.net); });
+  }
+  $('f').addEventListener('submit', function (e) { e.preventDefault(); check($('code').value); });
+  var q = new URLSearchParams(location.search).get('c');
+  if (q) check(q);
+})();
+</script>
+</body>
+</html>
