@@ -3,7 +3,7 @@ window.SITE = {
   owner: 'Mészáros Kevin',                         // who runs the app (your name or company)
   email: 'support@verdiktcheck.com',               // contact email for users (support / data requests)
   // For the certificate check page (verify.html) – the same two values as in GitHub Variables:
-  supabaseUrl: 'IDE_IRD_A_SUPABASE_URL',           // SUPABASE_URL, e.g. https://abcd1234.supabase.co
+  supabaseUrl: 'https://vtiuuginymzhxndrmjxs.supabase.co', // SUPABASE_URL (public project address)
   anonKey: 'IDE_IRD_A_SUPABASE_ANON_KEY',          // SUPABASE_ANON_KEY (the public publishable key)
   playUrl: 'https://play.google.com/store/apps/details?id=com.verdiktcheck.app'
 };

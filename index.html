@@ -2,26 +2,416 @@
 <html lang="hu">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>VERDIKT Check</title>
-<meta name="description" content="Eredeti vagy replika? Fotózd le a ruhát, cipőt vagy táskát, és a VERDIKT Check megmondja.">
-<link rel="stylesheet" href="style.css">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>VERDIKT Check – Eredeti vagy replika? Derítsük ki.</title>
+<meta name="description" content="Fotózd le a márkás cipőt, ruhát vagy táskát, és a VERDIKT Check kb. egy perc alatt megmondja, eredeti-e, megéri-e az árát, és mennyit ér.">
+<meta name="theme-color" content="#0B0C0F">
+<link rel="canonical" href="https://verdiktcheck.com/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://verdiktcheck.com/">
+<meta property="og:title" content="VERDIKT Check – Eredeti vagy replika? Derítsük ki.">
+<meta property="og:description" content="Pár fotó, és az AI megmondja, eredeti-e, megéri-e az árát, és mennyit ér.">
+<meta property="og:image" content="https://verdiktcheck.com/img/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<link rel="preload" href="fonts/interdisplay-900.woff" as="font" type="font/woff" crossorigin>
+<link rel="preload" href="fonts/inter-400.woff" as="font" type="font/woff" crossorigin>
+<link rel="stylesheet" href="assets/site.css">
 <script src="config.js"></script>
 </head>
 <body>
-<main>
-<div class="brand">VERDIKT <b>CHECK</b></div>
-<h1>Eredeti vagy replika?<br><span style="color:var(--lime)">Derítsük ki.</span></h1>
-<p>Fotózd le a márkás ruhát, cipőt vagy táskát, és a VERDIKT Check megmondja, eredeti-e, megéri-e az árát, mennyit ér, és hol kapod meg eredetiben olcsóbban.</p>
-<p class="muted">Authentic or replica? Snap your branded clothing, sneakers or bag and VERDIKT Check tells you whether it's genuine, whether it's worth the price, what it's worth and where to get it genuine for less.</p>
-<div class="card">
-<p><a href="privacy.html">Adatvédelmi tájékoztató / Privacy policy</a></p>
-<p><a href="terms.html">Felhasználási feltételek / Terms of use</a></p>
-<p><a href="delete-account.html">Fiók törlése / Delete your account</a></p>
-<p><a href="child-safety.html">Gyermekvédelmi szabályok / Child safety standards</a></p>
-<p>Kapcsolat / Contact: <a data-site="email"></a></p>
+<div class="bg" aria-hidden="true"></div>
+
+<!-- ============ header ============ -->
+<header class="hdr" id="hdr">
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="VERDIKT Check">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#C8F04A" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"/></svg>
+      <b>VERDIKT</b><i>CHECK</i>
+    </a>
+    <nav class="nav" aria-label="Fő menü">
+      <a href="#how" data-i18n="nav_how">Így működik</a>
+      <a href="#app" data-i18n="nav_app">Az app</a>
+      <a href="#wardrobe" data-i18n="nav_wr">Gardrób</a>
+      <a href="#ranking" data-i18n="nav_rk">Ranglista</a>
+      <a href="#pro">PRO</a>
+      <a href="#faq" data-i18n="nav_faq">GYIK</a>
+    </nav>
+    <div class="lang" role="group" aria-label="Nyelv / Language">
+      <button type="button" data-lang="hu" aria-pressed="true">HU</button>
+      <button type="button" data-lang="en" aria-pressed="false">EN</button>
+    </div>
+    <a class="btn btn-lime hdr-cta" href="#beta" data-i18n="cta_tester">Legyél tesztelő</a>
+    <button class="burger" type="button" id="burger" aria-controls="menu" aria-expanded="false" aria-label="Menü"><span></span></button>
+  </div>
+</header>
+
+<div class="menu" id="menu" aria-hidden="true">
+  <nav aria-label="Menü">
+    <a href="#how" data-i18n="nav_how">Így működik</a>
+    <a href="#app" data-i18n="nav_app">Az app</a>
+    <a href="#wardrobe" data-i18n="nav_wr">Gardrób</a>
+    <a href="#ratings" data-i18n="nav_rt">Pontozás</a>
+    <a href="#ranking" data-i18n="nav_rk">Ranglista</a>
+    <a href="#wishlist" data-i18n="nav_ws">Kívánságlista</a>
+    <a href="#pro">PRO</a>
+    <a href="#faq" data-i18n="nav_faq">GYIK</a>
+    <a href="#beta" data-i18n="nav_beta">Tesztelés</a>
+  </nav>
+  <div class="small">
+    <a href="privacy.html" data-i18n="l_privacy">Adatvédelem</a>
+    <a href="terms.html" data-i18n="l_terms">Felhasználási feltételek</a>
+    <a href="verify.html" data-i18n="l_verify">Tanúsítvány ellenőrzése</a>
+  </div>
+  <div class="soc">
+    <a href="https://www.tiktok.com/@cipomester" target="_blank" rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.6 3c.4 2.2 1.8 3.7 4 4v3.2a8 8 0 0 1-4-1.2v6.3A5.7 5.7 0 1 1 11 9.6v3.3a2.5 2.5 0 1 0 2.4 2.5V3h3.2z"/></svg></a>
+    <a href="https://www.instagram.com/verdikt_check" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3.2" y="3.2" width="17.6" height="17.6" rx="5.2"/><circle cx="12" cy="12" r="4.1"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg></a>
+  </div>
 </div>
-<p class="muted">A VERDIKT Check független szolgáltatás, egyik márkával sem áll kapcsolatban. / VERDIKT Check is independent and not affiliated with any brand.</p>
+
+<main id="top">
+<!-- ============ hero ============ -->
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-art rv" aria-hidden="true">
+      <div class="bubble" id="bubble">Eredeti? Majd én megmondom.</div>
+      <div class="verdi-box" id="verdi"></div>
+      <div class="chip c1"><i><svg viewBox="0 0 24 24" fill="none" stroke="#0B0C0F" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></i><span data-i18n="chip1">EREDETI · 88%</span></div>
+      <div class="chip c2"><i><svg viewBox="0 0 24 24" fill="none" stroke="#0B0C0F" stroke-width="3.4" stroke-linecap="round"><path d="M12 7v6M12 17.5v.5"/></svg></i><span data-i18n="chip2">MINŐSÉGI REPLIKA?</span></div>
+      <div class="chip c3"><i><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 16l5-5 4 4 7-7M15 8h5v5"/></svg></i><span data-i18n="chip3">MEGÉRI AZ ÁRÁT</span></div>
+    </div>
+    <div class="hero-copy">
+      <span class="kicker rv" data-i18n="kicker">AI-alapú eredetiség-ellenőrzés</span>
+      <h1 class="rv d1"><span data-i18n="h1a">Eredeti vagy replika?</span><span class="grad" data-i18n="h1b">Derítsük ki.</span></h1>
+      <p class="lead rv d2" data-i18n="lead">Fotózd le a márkás cipőt, ruhát vagy táskát, és a VERDIKT Check kb. egy perc alatt megmondja, eredeti-e, megéri-e az árát, és mennyit ér.</p>
+      <div class="hero-ctas rv d3">
+        <a class="btn btn-lime" href="#beta"><span data-i18n="cta_tester">Legyél tesztelő</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <span class="store" aria-label="Google Play – hamarosan"><svg viewBox="0 0 24 24" fill="none" stroke="#C8F04A" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M5 3.5l14 8.5-14 8.5z"/><path d="M5 3.5l9.5 12M5 20.5L14.5 8.5"/></svg><span><small data-i18n="soon">Hamarosan</small><b>Google Play</b></span></span>
+      </div>
+      <span class="pill rv d3" data-i18n="free">✦ Az első ellenőrzés ingyenes</span>
+      <div class="cue rv d3" aria-hidden="true"><span></span></div>
+    </div>
+  </div>
+</section>
+
+<div class="ticker" aria-hidden="true"><div class="ticker-in" data-ticker="t1"></div></div>
+<div class="ticker t2" aria-hidden="true"><div class="ticker-in" data-ticker="t2"></div></div>
+
+<!-- ============ how it works ============ -->
+<section class="sec" id="how">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="kicker rv" data-i18n="how_k">A folyamat</span>
+      <h2 class="h2 rv d1" data-i18n-html="how_t">Négy lépés. <span class="grad">Egy perc.</span></h2>
+    </div>
+    <div class="proc">
+      <article class="pcard rv"><span class="num">01</span><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8.5A2.5 2.5 0 0 1 6.5 6h1.8l1.5-2h4.4l1.5 2h1.8A2.5 2.5 0 0 1 20 8.5v8a2.5 2.5 0 0 1-2.5 2.5h-11A2.5 2.5 0 0 1 4 16.5z"/><circle cx="12" cy="12.5" r="3.5"/></svg></span><small>01</small><h3 data-i18n="p1t">Fotó</h3><p data-i18n="p1">2–6 fotó a fontos részletekről – a fotózási segéd megmutatja, mit és hogyan.</p></article>
+      <article class="pcard rv d1"><span class="num">02</span><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8V5.5A1.5 1.5 0 0 1 5.5 4H8M16 4h2.5A1.5 1.5 0 0 1 20 5.5V8M20 16v2.5a1.5 1.5 0 0 1-1.5 1.5H16M8 20H5.5A1.5 1.5 0 0 1 4 18.5V16M4 12h16"/></svg></span><small>02</small><h3 data-i18n="p2t">AI-elemzés</h3><p data-i18n="p2">Az AI átnézi a címkéket, varrásokat, logókat és kellékeket.</p></article>
+      <article class="pcard rv d2"><span class="num">03</span><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5.5c0 4.4-3 8-7 9.5-4-1.5-7-5.1-7-9.5V6z"/><path d="M8.8 12.2l2.2 2.2 4.4-4.4"/></svg></span><small>03</small><h3 data-i18n="p3t">Verdikt</h3><p data-i18n="p3">Eredeti vagy replika – megbízhatósági százalékkal és indoklással.</p></article>
+      <article class="pcard rv d3"><span class="num">04</span><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.5 13.5l-7 7a2 2 0 0 1-2.8 0l-7.2-7.2V4h9.3l7.7 7.7a2 2 0 0 1 0 1.8z"/><circle cx="8.5" cy="8.5" r="1.5"/></svg></span><small>04</small><h3 data-i18n="p4t">Döntés</h3><p data-i18n="p4">Megéri? Mennyit ér? Hol kapod meg eredetiben olcsóbban?</p></article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ app showcase ============ -->
+<section id="app" class="show">
+  <div class="wrap show-head">
+    <div class="sec-head center" style="margin-bottom:0">
+      <span class="kicker rv" data-i18n="app_k">Az app belülről</span>
+      <h2 class="h2 rv d1" data-i18n-html="app_t">Pár koppintás, és <span class="grad">tudod, mit veszel.</span></h2>
+    </div>
+  </div>
+  <div class="show-track" id="track" style="--n:6">
+    <div class="show-sticky">
+      <div class="phone-wrap">
+        <div class="phone" id="phone">
+          <div class="screen">
+            <img data-shot="home" alt="" width="390" height="844" fetchpriority="low">
+            <img data-shot="photos" alt="" width="390" height="844" loading="lazy">
+            <img data-shot="result" alt="" width="390" height="844" loading="lazy">
+            <img data-shot="findings" alt="" width="390" height="844" loading="lazy">
+            <img data-shot="value" alt="" width="390" height="844" loading="lazy">
+            <img data-shot="cert" alt="" width="390" height="844" loading="lazy">
+            <div class="scan"><b data-i18n="scan">AI-ELEMZÉS…</b></div>
+          </div>
+          <div class="stamp" data-i18n="stamp">EREDETI ✓</div>
+        </div>
+      </div>
+      <div class="show-copy">
+        <ol class="steps" id="steps">
+          <li class="step on"><em>01 / 06</em><h3 data-i18n="s1t">Indíts egy ellenőrzést</h3><p data-i18n="s1">Válaszd ki, mit nézünk meg: cipő, pulóver, póló, kabát, táska, sapka vagy öv.</p></li>
+          <li class="step"><em>02 / 06</em><h3 data-i18n="s2t">Fotózd le a részleteket</h3><p data-i18n="s2">A fotózási segéd megmutatja, mit és hogyan fotózz: oldalnézet, talp, belső címke, logó.</p></li>
+          <li class="step"><em>03 / 06</em><h3 data-i18n="s3t">Megkapod a verdiktet</h3><p data-i18n="s3">Eredeti, minőségi vagy rossz minőségű replika – megbízhatósági százalékkal. Ha nem lehet biztosan dönteni, azt is megmondja.</p></li>
+          <li class="step"><em>04 / 06</em><h3 data-i18n="s4t">Látod, mit talált</h3><p data-i18n="s4">Pontról pontra: címkék, varrások, kellékek – mi stimmel, és mi kérdéses.</p></li>
+          <li class="step"><em>05 / 06</em><h3 data-i18n="s5t">Megtudod, mennyit ér</h3><p data-i18n="s5">Javasolt hirdetési ár, új és használt piaci ár, és hogy megéri-e a kért összeget.</p></li>
+          <li class="step"><em>06 / 06</em><h3 data-i18n="s6t">Tanúsítvány a hirdetésedbe</h3><p data-i18n="s6">Egyedi kód és ellenőrző link: a vevő egy kattintással megnézheti az ítéletet.</p></li>
+        </ol>
+        <div class="bars" id="bars" aria-hidden="true"><i class="on"></i><i></i><i></i><i></i><i></i><i></i></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ verdicts ============ -->
+<section class="sec" id="verdicts">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="kicker rv" data-i18n="v_k">Nincs mellébeszélés</span>
+      <h2 class="h2 rv d1" data-i18n-html="v_t">Négyféle ítélet. <span class="grad">Mindig egyenesen.</span></h2>
+    </div>
+    <div class="vgrid">
+      <div class="vcard v-auth rv"><span class="tag">VERDIKT</span><span class="vi"><svg viewBox="0 0 24 24" fill="none" stroke="#C8F04A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><div><b data-i18n="va">EREDETI</b><p data-i18n="va_s">A látható részletek az eredetinek felelnek meg.</p></div></div>
+      <div class="vcard v-hq rv d1"><span class="tag">VERDIKT</span><span class="vi"><svg viewBox="0 0 24 24" fill="none" stroke="#FFB020" stroke-width="2.4" stroke-linejoin="round"><rect x="8" y="8" width="11" height="11" rx="2.5"/><path d="M5 15V6.5A1.5 1.5 0 0 1 6.5 5H15"/></svg></span><div><b data-i18n="vh">MINŐSÉGI REPLIKA</b><p data-i18n="vh_s">Jó minőségű másolat – nem eredeti termék.</p></div></div>
+      <div class="vcard v-lq rv d2"><span class="tag">VERDIKT</span><span class="vi"><svg viewBox="0 0 24 24" fill="none" stroke="#FF5A4E" stroke-width="3" stroke-linecap="round"><path d="M7 7l10 10M17 7L7 17"/></svg></span><div><b data-i18n="vl">ROSSZ MINŐSÉGŰ REPLIKA</b><p data-i18n="vl_s">Könnyen felismerhető másolat.</p></div></div>
+      <div class="vcard v-inc rv d3"><span class="tag">VERDIKT</span><span class="vi"><svg viewBox="0 0 24 24" fill="none" stroke="#9FB2CC" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9.2 9a3 3 0 1 1 4.2 2.8c-.9.4-1.4 1.1-1.4 2.1v.4M12 17.5v.3"/></svg></span><div><b data-i18n="vi">NEM ELDÖNTHETŐ</b><p data-i18n="vi_s">A fotók alapján nem lehet felelősen dönteni – ezt is megmondjuk.</p></div></div>
+    </div>
+    <p class="note rv"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 11v5.5M12 7.8v.2"/></svg><span data-i18n="note">Az eredmény a fotóid alapján készült AI-becslés – nem hivatalos hitelesítés és nem garancia. Minél élesebbek és teljesebbek a fotók, annál pontosabb.</span></p>
+  </div>
+</section>
+
+<!-- ============ spotlight: wardrobe ============ -->
+<section class="spot" id="wardrobe" style="--ac:#C8F04A;--ac2:rgba(200,240,74,.13);--ac3:#FFB020">
+  <div class="bgword" data-bx="-.25" aria-hidden="true" data-i18n="bw_wr">GARDRÓB</div>
+  <div class="wrap spot-in">
+    <div class="spot-copy rv">
+      <span class="kicker" data-i18n="wr_k">Gardrób · portfólió</span>
+      <h2 class="h2 rv" data-i18n-html="wr_t">Tudd, mennyit ér <span class="grad">a gardróbod.</span></h2>
+      <p class="lead" data-i18n="wr_p">Az eredetinek ítélt darabjaid egy helyen: becsült piaci érték, nyereség a vételárhoz képest és a legértékesebb darabod – értékgörbével, ami megmutatja, hogyan változik a gyűjteményed értéke.</p>
+      <ul class="ticks"><li data-i18n="wr_1">Becsült összérték egy pillantással</li><li data-i18n="wr_2">Nyereség a vételárhoz képest</li><li data-i18n="wr_3">A legértékesebb darabod kiemelve</li><li><span data-i18n="wr_4">Értékgörbe és havi jelentés</span><span class="pro">PRO</span></li></ul>
+    </div>
+    <div class="spot-vis">
+      <div class="phone"><div class="screen"><img data-img="wardrobe" alt="" width="390" height="844" loading="lazy"></div></div>
+      <div class="wdg w-tl rv-pop" data-speed="-.07">
+        <small data-i18n="wr_w1">Gardróbod értéke</small>
+        <span class="big" data-count="92000" data-fmt="money">0</span>
+        <span class="up">▲ +15%</span>
+        <svg class="spark" viewBox="0 0 170 46" aria-hidden="true"><defs><linearGradient id="sg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#C8F04A" stop-opacity=".35"/><stop offset="1" stop-color="#C8F04A" stop-opacity="0"/></linearGradient></defs><path class="a" d="M2 40 L26 34 L48 37 L70 26 L94 29 L116 18 L140 20 L166 6 L166 46 L2 46 Z"/><path class="l" d="M2 40 L26 34 L48 37 L70 26 L94 29 L116 18 L140 20 L166 6"/><circle cx="166" cy="6" r="4"/></svg>
+      </div>
+      <div class="wdg w-br rv-pop" data-speed=".06">
+        <div class="crown"><i><svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 8l4.5 4L12 5l4.5 7L21 8l-2 11H5z"/></svg></i><div><small data-i18n="wr_w2">Legértékesebb darab</small><b data-i18n="wr_w3">Fekete pehelykabát</b><span data-count="92000" data-fmt="money">0</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ spotlight: public wardrobe ratings ============ -->
+<section class="spot flip" id="ratings" style="--ac:#FFB020;--ac2:rgba(255,176,32,.12);--ac3:#FF7A45">
+  <div class="bgword" data-bx=".25" aria-hidden="true">1–10</div>
+  <div class="wrap spot-in">
+    <div class="spot-copy rv">
+      <span class="kicker" data-i18n="rt_k">Nyilvános gardrób · pontozás</span>
+      <h2 class="h2 rv" data-i18n-html="rt_t">Mutasd meg. <span class="grad">Pontozzanak <span class="nw">1–10-ig.</span></span></h2>
+      <p class="lead" data-i18n="rt_p">Tedd nyilvánossá a gardróbodat, böngészd mások gyűjteményét, és pontozd őket 1-től 10-ig. Mások alapból csak a generált beceneved látják – a neved, a fotód és az e-mail-címed nem.</p>
+      <ul class="ticks"><li data-i18n="rt_1">Legjobbra értékelt és legújabb gardróbok</li><li data-i18n="rt_2">Pontozás 1-től 10-ig</li><li data-i18n="rt_3">Egy ember egy értékelést adhat, és bármikor módosíthatja</li><li data-i18n="rt_4">Bármikor visszaállíthatod privátra</li></ul>
+    </div>
+    <div class="spot-vis">
+      <div class="phone"><div class="screen"><img data-img="pwview" alt="" width="390" height="844" loading="lazy"></div></div>
+      <div class="wdg w-tr rv-pop" data-speed="-.06">
+        <div class="score"><div class="ring"><b data-count="9.1" data-fmt="dec1">0</b></div><div><small data-i18n="rt_w1">Értékelés · /10</small><b style="display:block;font-size:15px;margin-top:4px" data-i18n="rt_w2">41 értékelés</b><div class="stars"><i></i><i></i><i></i><i></i><i></i></div></div></div>
+      </div>
+      <div class="wdg w-bl rv-pop" data-speed=".07" style="width:220px">
+        <small data-i18n="rt_w3">Mennyire tetszik?</small>
+        <div class="taps"><span>6</span><span>7</span><span>8</span><span class="hit">9</span><span>10</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ spotlight: ranking ============ -->
+<section class="spot" id="ranking" style="--ac:#FFC53D;--ac2:rgba(255,197,61,.12);--ac3:#FFB020">
+  <div class="bgword" data-bx="-.25" aria-hidden="true" data-i18n="bw_rk">RANGLISTA</div>
+  <div class="wrap spot-in">
+    <div class="spot-copy rv">
+      <span class="kicker" data-i18n="rk_k">Eredeti-ranglista</span>
+      <h2 class="h2 rv" data-i18n-html="rk_t">Ki gyűjti a <span class="grad">legtöbb eredetit?</span></h2>
+      <p class="lead" data-i18n="rk_p">Rangsor az eredetinek ítélt darabok száma és becsült értéke szerint. Csak egy automatikusan kapott becenév látszik (pl. Lime Falcon 42) – és aki az élre kerül, ajándékba 3 nap PRO-t kap.</p>
+      <ul class="ticks"><li data-i18n="rk_1">Lista érték és darabszám szerint</li><li data-i18n="rk_2">Automatikus becenév, a profilod rejtve marad</li><li data-i18n="rk_3">Az elsőnek 3 nap PRO jár (legalább 3 eredeti darabbal)</li><li data-i18n="rk_4">Kilépsz, és a sorod azonnal törlődik</li></ul>
+    </div>
+    <div class="spot-vis">
+      <div class="phone"><div class="screen"><img data-img="rank" alt="" width="390" height="844" loading="lazy"></div></div>
+      <div class="wdg w-bl rv-pop" data-speed="-.07">
+        <small data-i18n="rk_w1">Heti dobogó</small>
+        <div class="podium">
+          <div class="pod p2"><span class="av"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 16.5h18v2H3zM4 16.5c0-3 2-4.5 5-4.5l2-4h3l1 3c3 .3 5 2.2 5 5.5"/></svg></span><span class="nm">Lime Falcon 42</span><span class="bar">2</span></div>
+          <div class="pod p1"><span class="av"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M9.2 9a3 3 0 1 1 4.2 2.8c-.9.4-1.4 1.1-1.4 2.1v.4M12 17.5v.3"/></svg></span><span class="nm" data-i18n="rk_you">Te leszel?</span><span class="bar">1</span></div>
+          <div class="pod p3"><span class="av"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5a7 7 0 0 0-7 7v3h14v-3a7 7 0 0 0-7-7zM3 15h18"/></svg></span><span class="nm">Volt Raven 58</span><span class="bar">3</span></div>
+        </div>
+        <span class="prize" data-i18n="rk_w2">1. HELY = 3 NAP PRO</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ spotlight: wishlist ============ -->
+<section class="spot flip" id="wishlist" style="--ac:#FF5A7A;--ac2:rgba(255,90,122,.11);--ac3:#FFB020">
+  <div class="bgword" data-bx=".25" aria-hidden="true" data-i18n="bw_ws">KÍVÁNSÁG</div>
+  <div class="wrap spot-in">
+    <div class="spot-copy rv">
+      <span class="kicker" data-i18n="ws_k">Kívánságlista · árfigyelés</span>
+      <h2 class="h2 rv" data-i18n-html="ws_t">Mentsd el. <span class="grad">Szólunk, ha olcsóbb.</span></h2>
+      <p class="lead" data-i18n="ws_p">Tedd fel a kiszemelt darabot, add meg a célárat, és megmutatjuk, hol kapod meg eredetiben a legolcsóbban. PRO-val kétnaponta figyeljük az árakat, és értesítünk, ha egy ár a célárad alá megy.</p>
+      <ul class="ticks"><li data-i18n="ws_1">Saját kirakat a kívánságaidnak</li><li data-i18n="ws_2">Célár és ármérő minden tételnél</li><li data-i18n="ws_3">A legolcsóbb eredeti ajánlat, biztonságos helyről</li><li><span data-i18n="ws_4">Árfigyelés és értesítés (max. 5 tétel)</span><span class="pro">PRO</span></li></ul>
+    </div>
+    <div class="spot-vis">
+      <div class="phone"><div class="screen"><img data-img="wish" alt="" width="390" height="844" loading="lazy"></div></div>
+      <div class="wdg w-tr notif" data-speed="-.06">
+        <div class="notif-in"><i><svg viewBox="0 0 24 24" fill="none" stroke="#0B0C0F" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></i><div><small>VERDIKT Check · <span data-i18n="ws_now">most</span></small><b data-i18n="ws_w1">Célár alatt!</b><p data-i18n="ws_w2">A kiszemelt darabod most olcsóbb, mint a célárad.</p></div></div>
+      </div>
+      <div class="wdg w-bl rv-pop" data-speed=".07">
+        <small data-i18n="ws_w3">Ármérő</small>
+        <div class="meter"><div class="track"><span class="tgt" data-l="CÉLÁR" data-i18n-attr="ws_tgt"></span><span class="dot"></span></div><div class="lbl"><span data-i18n="ws_lo">olcsó</span><span data-i18n="ws_hi">drága</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ spotlight: profile ============ -->
+<section class="spot" id="profile" style="--ac:#5E9BFF;--ac2:rgba(94,155,255,.12);--ac3:#C8F04A">
+  <div class="bgword" data-bx="-.25" aria-hidden="true" data-i18n="bw_pf">PROFIL</div>
+  <div class="wrap spot-in">
+    <div class="spot-copy rv">
+      <span class="kicker" data-i18n="pf_k">Profil</span>
+      <h2 class="h2 rv" data-i18n-html="pf_t">A te profilod, <span class="grad">a te szabályaid.</span></h2>
+      <p class="lead" data-i18n="pf_p">Felhasználónév, avatar és a saját statisztikáid: ellenőrzések, eredetik, gardrób. Te döntöd el, mi látszik – a fotód, a neved és a státuszod alapból rejtve marad. A meghívókódoddal pedig minden barát után mindketten 3 nap PRO-t kaptok.</p>
+      <ul class="ticks"><li data-i18n="pf_1">Felhasználónév és avatar</li><li data-i18n="pf_2">Ellenőrzések, eredetik, gardrób egy helyen</li><li data-i18n="pf_3">Láthatóság egyetlen kapcsolóval</li><li data-i18n="pf_4">Meghívókód: +3 nap PRO mindkettőtöknek</li></ul>
+    </div>
+    <div class="spot-vis">
+      <div class="phone"><div class="screen"><img data-img="profile" alt="" width="390" height="844" loading="lazy"></div></div>
+      <div class="wdg w-tl rv-pop" data-speed="-.07">
+        <div class="tgl"><span class="sw" aria-hidden="true"></span><div><b data-i18n="pf_w1">Mutasd a profilom másoknak</b><span data-i18n="pf_w2">Te döntöd el, bármikor</span></div></div>
+      </div>
+      <div class="wdg w-br rv-pop" data-speed=".06">
+        <div class="ticket2"><small data-i18n="pf_w3">Meghívókódod</small><span class="code">VK-7Q2K9M</span><p data-i18n="pf_w4">+3 nap PRO neked és a barátodnak is.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ spotlight: PRO ============ -->
+<section class="spot flip pro-spot" id="pro" style="--ac:#5E9BFF;--ac2:rgba(94,155,255,.16);--ac3:#C8F04A">
+  <div class="bgword" data-bx=".25" aria-hidden="true">PRO</div>
+  <div class="wrap spot-in">
+    <div class="spot-copy rv">
+      <span class="kicker">VERDIKT PRO</span>
+      <h2 class="h2 rv" data-i18n-html="pr_t">Minden funkció. <span class="grad">Korlátlanul.</span></h2>
+      <p class="lead" data-i18n="pr_p">Korlátlan ellenőrzés és minden extra. Próbáld ki 3 napig ingyen – kártya nélkül, magától lejár.</p>
+      <div class="perks"><span data-i18n="pr_1">Korlátlan ellenőrzés</span><span data-i18n="pr_2">Ár-érték ítélet</span><span data-i18n="pr_3">Élő piaci ár</span><span data-i18n="pr_4">Árfigyelés</span><span data-i18n="pr_5">Értékgörbe</span><span data-i18n="pr_6">Hirdetés-ellenőrzés</span><span data-i18n="pr_7">Eladási ár + hirdetésíró</span><span data-i18n="pr_8">Tanúsítvány és megosztás</span><span data-i18n="pr_9">Napi márkatippek</span><span data-i18n="pr_10">Olcsóbban eredetit</span></div>
+      <p class="credits" data-i18n="pr_cr">Nem kérsz előfizetést? Kreditekkel is mehet: 1, 3, 5 vagy 10 ellenőrzés.</p>
+    </div>
+    <div class="spot-vis">
+      <div class="procard tilt" id="procard">
+        <div class="top"><b><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#C8F04A" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 6.5"/></svg>VERDIKT</b><em>PRO</em></div>
+        <div class="bot"><small data-i18n="pr_c1">PRO TAGSÁG</small><strong data-i18n="pr_c2">Minden funkció, korlátlanul</strong></div>
+      </div>
+      <div class="trial" aria-hidden="true"><span><b>3</b><span data-i18n="pr_tr">nap ingyen</span></span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ features ============ -->
+<section class="sec" id="features" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="kicker rv" data-i18n="f_k">És még</span>
+      <h2 class="h2 rv d1" data-i18n-html="f_t">Nem csak ellenőriz. <span class="grad">Segít jól dönteni.</span></h2>
+    </div>
+    <div class="fgrid">
+      <article class="fcard big rv"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2.6 5.6 6.1.7-4.5 4.2 1.2 6L12 16.6 6.6 19.5l1.2-6-4.5-4.2 6.1-.7z"/></svg></span><span class="big-num grad">100</span><h3 data-i18n="f8t">márka, a kedvenceidre szabva</h3><p data-i18n="f8">Sneaker, streetwear, prémium, luxus és sport – válaszd ki a kedvenceidet, és az app rájuk hangolódik.</p></article>
+      <article class="fcard rv d1"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.5 13.5l-7 7a2 2 0 0 1-2.8 0l-7.2-7.2V4h9.3l7.7 7.7a2 2 0 0 1 0 1.8z"/><circle cx="8.5" cy="8.5" r="1.5"/></svg></span><h3 data-i18n="f1t">Olcsóbban eredetit</h3><p data-i18n="f1">Megmutatja, hol kapod meg eredetiben a legjobb áron, biztonságos helyekről.</p></article>
+      <article class="fcard rv d2"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6.5"/><path d="M20 20l-4.2-4.2M8.6 11l1.6 1.6 3.2-3.2"/></svg></span><h3 data-i18n="f2t">Hirdetés-ellenőrzés</h3><p data-i18n="f2">Vásárlás előtt átnézi a hirdetést, és megmondja, mi gyanús benne és mit kérdezz az eladótól.</p></article>
+      <article class="fcard rv"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5h16M6 16V9.5M11 16V5.5M16 16v-4"/></svg></span><h3 data-i18n="f3t">Eladási ár + hirdetésíró</h3><p data-i18n="f3">Megmondja, mennyiért add el, és megírja helyetted a hirdetés szövegét.</p></article>
+      <article class="fcard rv d1"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5.5c0 4.4-3 8-7 9.5-4-1.5-7-5.1-7-9.5V6z"/><path d="M8.8 12.2l2.2 2.2 4.4-4.4"/></svg></span><h3 data-i18n="f4t">Digitális tanúsítvány</h3><p data-i18n="f4">Kód és QR-kód a hirdetésedbe – a vevő egy kattintással ellenőrizheti az ítéletet.</p></article>
+      <article class="fcard rv d2"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6.5A2.5 2.5 0 0 1 6.5 4h11A2.5 2.5 0 0 1 20 6.5v7a2.5 2.5 0 0 1-2.5 2.5H10l-4 4v-4h0a2 2 0 0 1-2-2z"/></svg></span><h3 data-i18n="f5t">Barátok és chat</h3><p data-i18n="f5">Üzenj a barátaidnak, küldj fotót vagy egy ellenőrzést, és oszd meg velük a gardróbodat.</p></article>
+      <article class="fcard rv wide"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M5.6 18.4l2.1-2.1M16.3 7.7l2.1-2.1"/><circle cx="12" cy="12" r="3"/></svg></span><h3 data-i18n="f6t">Napi márkatippek</h3><p data-i18n="f6">Friss tippek a kedvenc márkáidhoz: mire figyelj, mikor érdemes venni és eladni.</p></article>
+      
+    </div>
+    <p class="foot-note rv"><span class="pro">PRO</span><span data-i18n="pro_note">Egyes funkciók PRO-előfizetéssel érhetők el. A PRO 3 napig ingyen kipróbálható, kártya nélkül.</span></p>
+    <div class="stats" id="stats" hidden>
+      <div><b data-stat="checks">–</b><span data-i18n="st1">ellenőrzés eddig</span></div>
+      <div><b data-stat="replicas">–</b><span data-i18n="st2">replikát buktatott le</span></div>
+      <div><b data-stat="authentic">–</b><span data-i18n="st3">eredetit erősített meg</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="sec" id="faq" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head center">
+      <span class="kicker rv" data-i18n="faq_k">Gyakori kérdések</span>
+      <h2 class="h2 rv d1" data-i18n-html="faq_t">Kérdésed van? <span class="grad">Itt a válasz.</span></h2>
+    </div>
+    <div class="faq rv" id="faqlist"></div>
+  </div>
+</section>
+
+<!-- ============ beta sign-up ============ -->
+<section class="sec" id="beta" style="padding-top:0">
+  <div class="wrap">
+    <div class="beta rv" id="betabox">
+      <div class="bell" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 16.5V11a6 6 0 1 1 12 0v5.5l1.5 2h-15z"/><path d="M10 20.5a2.2 2.2 0 0 0 4 0"/></svg></div>
+      <span class="kicker" data-i18n="b_k">Zárt teszt · Android</span>
+      <h2 class="h2" data-i18n-html="b_t">Próbáld ki <span class="grad">elsőként.</span></h2>
+      <p class="lead" data-i18n="b_lead">A VERDIKT Check most zárt tesztben van a Google Play-en. Add meg a Google-fiókod e-mail-címét (amivel a Play Áruházat használod), és küldjük a meghívót.</p>
+      <form class="su" id="su" novalidate>
+        <div class="su-row">
+          <label class="sr" for="su-email" data-i18n="b_label">E-mail-cím</label>
+          <input id="su-email" type="email" name="email" autocomplete="email" inputmode="email" required maxlength="254" placeholder="pelda@gmail.com" data-i18n-ph="b_ph">
+          <button class="btn btn-lime" type="submit" id="su-btn"><span data-i18n="b_btn">Jelentkezem</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12l16-8-6 16-2.5-6.5z"/></svg></button>
+        </div>
+        <input class="hp" type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <label class="ok"><input type="checkbox" id="su-ok" required><span data-i18n-html="b_ok">Elmúltam 16 éves, és elfogadom az <a href="privacy.html" target="_blank" rel="noopener">adatkezelési tájékoztatót</a>.</span></label>
+        <p class="msg" id="su-msg" role="status" aria-live="polite"></p>
+        <p class="fine" data-i18n="b_fine">Androidos telefon kell hozzá. Spamet nem küldünk – a címedet csak a meghívóhoz használjuk.</p>
+      </form>
+      <div class="done" id="su-done">
+        <img src="img/verdi-wink.webp" alt="" width="360" height="227" loading="lazy">
+        <b data-i18n="b_done">Megvagy!</b>
+        <p data-i18n="b_done_s">Hamarosan küldjük a meghívót a megadott címre.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ final CTA ============ -->
+<section class="sec final" style="padding-top:20px">
+  <div class="wrap">
+    <img class="final-verdi rv" src="img/verdi-point.webp" alt="" width="520" height="366" loading="lazy">
+    <h2 class="h2 rv d1" data-i18n-html="fin_t">Mielőtt fizetsz, <span class="grad">VERDIKT.</span></h2>
+    <p class="lead rv d2" data-i18n="fin_s">Pár fotó, és tudod, mit veszel.</p>
+    <a class="mega rv d3" href="#beta"><span data-i18n="fin_btn">Legyél tesztelő – próbáld ki elsőként</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    <span class="store rv d3" aria-label="Google Play – hamarosan"><svg viewBox="0 0 24 24" fill="none" stroke="#C8F04A" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M5 3.5l14 8.5-14 8.5z"/><path d="M5 3.5l9.5 12M5 20.5L14.5 8.5"/></svg><span><small data-i18n="soon">Hamarosan</small><b>Google Play</b></span></span>
+  </div>
+</section>
 </main>
+
+<!-- ============ footer ============ -->
+<footer class="foot">
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="VERDIKT Check" style="margin:0">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#C8F04A" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"/></svg>
+      <b>VERDIKT</b><i>CHECK</i>
+    </a>
+    <p class="tag" data-i18n="foot_tag">Eredeti vagy replika? Derítsük ki.</p>
+    <a class="mail" data-mail href="mailto:support@verdiktcheck.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M4 7l8 6 8-6"/></svg><span>support@verdiktcheck.com</span></a>
+    <div class="soc">
+      <a href="https://www.tiktok.com/@cipomester" target="_blank" rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.6 3c.4 2.2 1.8 3.7 4 4v3.2a8 8 0 0 1-4-1.2v6.3A5.7 5.7 0 1 1 11 9.6v3.3a2.5 2.5 0 1 0 2.4 2.5V3h3.2z"/></svg></a>
+      <a href="https://www.instagram.com/verdikt_check" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3.2" y="3.2" width="17.6" height="17.6" rx="5.2"/><circle cx="12" cy="12" r="4.1"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg></a>
+    </div>
+    <nav class="links" aria-label="Jogi információk">
+      <a href="#faq" data-i18n="nav_faq">GYIK</a>
+      <a href="terms.html" data-i18n="l_terms">Felhasználási feltételek</a>
+      <a href="privacy.html" data-i18n="l_privacy">Adatvédelem</a>
+      <a href="delete-account.html" data-i18n="l_delete">Fiók törlése</a>
+      <a href="child-safety.html" data-i18n="l_child">Gyermekvédelem</a>
+      <a href="verify.html" data-i18n="l_verify">Tanúsítvány ellenőrzése</a>
+    </nav>
+    <p class="copy"><span>© <span id="year">2026</span> VERDIKT Check · </span><span data-i18n="indep">Független szolgáltatás, egyik márkával sem áll kapcsolatban.</span></p>
+  </div>
+</footer>
+
+<script src="assets/verdi.js"></script>
+<script src="assets/site.js"></script>
 </body>
 </html>
