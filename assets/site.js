@@ -188,6 +188,19 @@
     }
   };
 
+  // Tester sign-up closed (config.js: testerSignup: false): the box says "coming soon" and the buttons follow suit.
+  var CLOSED = !!(window.SITE && window.SITE.testerSignup === false);
+  if (CLOSED) {
+    Object.assign(T.hu, { cta_tester: 'Tesztelés hamarosan', b_k: 'Zárt teszt · hamarosan', b_t: 'Hamarosan <span class="grad">indulunk.</span>',
+      b_lead: 'A VERDIKT Check zárt tesztje nemsokára indul a Google Play-en, Androidra. A jelentkezés most még zárva van.',
+      soon_follow: 'Kövess minket TikTokon és Instagramon – ott szólunk elsőként, amikor jelentkezni lehet.', fin_btn: 'A zárt teszt hamarosan indul' });
+    Object.assign(T.en, { cta_tester: 'Testing soon', b_k: 'Closed test · coming soon', b_t: 'Coming <span class="grad">soon.</span>',
+      b_lead: 'The closed test of VERDIKT Check starts soon on Google Play, for Android. Sign-ups aren’t open yet.',
+      soon_follow: 'Follow us on TikTok and Instagram – that’s where we’ll announce it first when sign-ups open.', fin_btn: 'The closed test starts soon' });
+    T.hu.faq[6][1] = 'Hamarosan a Google Play-en, Androidra. A zárt teszt nemsokára indul – kövess minket <a href="https://www.tiktok.com/@cipomester" target="_blank" rel="noopener">TikTokon</a> vagy <a href="https://www.instagram.com/verdikt_check" target="_blank" rel="noopener">Instagramon</a>, és ott szólunk, amikor jelentkezni lehet.';
+    T.en.faq[6][1] = 'Soon on Google Play, for Android. The closed test starts soon – follow us on <a href="https://www.tiktok.com/@cipomester" target="_blank" rel="noopener">TikTok</a> or <a href="https://www.instagram.com/verdikt_check" target="_blank" rel="noopener">Instagram</a> and we’ll tell you when sign-ups open.';
+    document.documentElement.classList.add('beta-closed');
+  } else { T.hu.soon_follow = ''; T.en.soon_follow = ''; }
   var $ = function (s, r) { return (r || document).querySelector(s); };
   var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -318,7 +331,7 @@
 
   /* ---------- tester sign-up ---------- */
   var form = $('#su');
-  if (form) form.addEventListener('submit', function (e) {
+  if (form && !CLOSED) form.addEventListener('submit', function (e) {
     e.preventDefault();
     var L = T[lang], msg = $('#su-msg'), btn = $('#su-btn'), email = $('#su-email').value.trim(), ok = $('#su-ok').checked;
     var err = function (k) { msg.textContent = L[k]; msg.className = 'msg err'; };

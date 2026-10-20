@@ -468,3 +468,10 @@ form.su{display:flex;flex-direction:column;gap:12px;margin-top:26px;text-align:l
   .perks span{font-size:12.5px;padding:9px 10px}
 }
 @media (prefers-reduced-motion:reduce){.h2.rv{clip-path:none;transform:none}.ticks li,.perks span,.rv-pop{opacity:1;transform:none}}
+
+/* tester sign-up closed: "coming soon" + socials */
+.soon{display:none;flex-direction:column;align-items:center;gap:14px;margin-top:26px}
+.soon-t{color:var(--fg2);font-size:15.5px;line-height:1.5;max-width:440px}
+.soon-h{display:flex;gap:18px;font-family:var(--f-m);font-weight:700;font-size:12.5px;color:var(--muted)}
+.beta-closed .beta form,.beta-closed .beta .done{display:none!important}
+.beta-closed .soon{display:flex}
