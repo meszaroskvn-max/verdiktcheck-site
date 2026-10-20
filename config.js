@@ -5,7 +5,9 @@ window.SITE = {
   // For the certificate check page (verify.html) – the same two values as in GitHub Variables:
   supabaseUrl: 'https://vtiuuginymzhxndrmjxs.supabase.co', // SUPABASE_URL (public project address)
   anonKey: 'IDE_IRD_A_SUPABASE_ANON_KEY',          // SUPABASE_ANON_KEY (the public publishable key)
-  playUrl: 'https://play.google.com/store/apps/details?id=com.verdiktcheck.app'
+  playUrl: 'https://play.google.com/store/apps/details?id=com.verdiktcheck.app',
+  // Tester sign-up on the homepage: false = "coming soon" (no new sign-ups), true = the form is open.
+  testerSignup: false
 };
 document.addEventListener('DOMContentLoaded', function () {
   document.querySelectorAll('[data-site]').forEach(function (el) {
