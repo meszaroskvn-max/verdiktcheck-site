@@ -188,8 +188,27 @@
     }
   };
 
-  // Tester sign-up closed (config.js: testerSignup: false): the box says "coming soon" and the buttons follow suit.
-  var CLOSED = !!(window.SITE && window.SITE.testerSignup === false);
+  // Sign-up mode (config.js): signup: 'notify' = "tell me when it's out" (+ optional tester), 'tester' = tester sign-up,
+  // 'closed' = no sign-up, "coming soon". The older testerSignup: false still means closed.
+  var MODE = (window.SITE && window.SITE.signup) || (window.SITE && window.SITE.testerSignup === false ? 'closed' : 'tester');
+  var CLOSED = MODE === 'closed', NOTIFY = MODE === 'notify';
+  if (NOTIFY) {
+    Object.assign(T.hu, { cta_tester: 'Értesíts az indulásról', nav_beta: 'Értesítés', b_k: 'Hamarosan a Google Play-en', b_t: 'Szólunk, amint <span class="grad">letölthető.</span>',
+      b_lead: 'Add meg az e-mail-címedet, és küldünk egy e-mailt, amikor a VERDIKT Check felkerül a Google Play-re. Ha szeretnéd, tesztelőként már előtte kipróbálhatod.',
+      b_btn: 'Értesíts', b_test: 'Tesztelő is lennék – szólj, ha indul a zárt teszt (Androidos telefon és Google-fiók kell hozzá).',
+      b_fine: 'Spamet nem küldünk: csak az induláskor írunk, és ha bejelölted, a tesztelési meghívót. A címedet bármikor töröltetheted.',
+      b_done: 'Feliratkoztál!', b_done_s: 'Szólunk, amint a VERDIKT Check letölthető.', fin_btn: 'Értesíts, amikor letölthető',
+      h_t: 'Kérj értesítést – szólunk, amint letölthető.', h_ph: 'E-mail-címed', h_btn: 'Értesíts', h_done: 'Feliratkoztál! Szólunk, amint letölthető.' });
+    Object.assign(T.en, { cta_tester: 'Notify me at launch', nav_beta: 'Get notified', b_k: 'Coming soon to Google Play', b_t: 'We’ll tell you <span class="grad">when it’s out.</span>',
+      b_lead: 'Enter your email and we’ll send you one email when VERDIKT Check is on Google Play. If you like, you can try it even earlier as a tester.',
+      b_btn: 'Notify me', b_test: 'I’d like to be a tester too – tell me when the closed test starts (needs an Android phone and a Google account).',
+      b_fine: 'No spam: we only write at launch and, if you ticked it, with the tester invite. You can have your address deleted any time.',
+      b_done: 'You’re on the list!', b_done_s: 'We’ll tell you as soon as VERDIKT Check is out.', fin_btn: 'Notify me when it’s out',
+      h_t: 'Get notified – we’ll tell you when it’s out.', h_ph: 'Your email', h_btn: 'Notify me', h_done: 'You’re on the list! We’ll tell you when it’s out.' });
+    T.hu.faq[6][1] = 'Hamarosan a Google Play-en, Androidra. <a href="#beta">Iratkozz fel</a>, és szólunk, amint letölthető – ha szeretnéd, tesztelőként már előtte kipróbálhatod.';
+    T.en.faq[6][1] = 'Soon on Google Play, for Android. <a href="#beta">Sign up</a> and we’ll tell you when it’s out – if you like, you can try it earlier as a tester.';
+    document.documentElement.classList.add('notify-mode');
+  }
   if (CLOSED) {
     Object.assign(T.hu, { cta_tester: 'Tesztelés hamarosan', b_k: 'Zárt teszt · hamarosan', b_t: 'Hamarosan <span class="grad">indulunk.</span>',
       b_lead: 'A VERDIKT Check zárt tesztje nemsokára indul a Google Play-en, Androidra. A jelentkezés most még zárva van.',
@@ -329,24 +348,29 @@
     ['checks', 'replicas', 'authentic'].forEach(function (k) { var el = $('[data-stat="' + k + '"]', box); if (el) el.textContent = fmt(s[k] || 0); });
   }).catch(function () {});
 
-  /* ---------- tester sign-up ---------- */
-  var form = $('#su');
-  if (form && !CLOSED) form.addEventListener('submit', function (e) {
-    e.preventDefault();
-    var L = T[lang], msg = $('#su-msg'), btn = $('#su-btn'), email = $('#su-email').value.trim(), ok = $('#su-ok').checked;
-    var err = function (k) { msg.textContent = L[k]; msg.className = 'msg err'; };
-    if (!/^[^\s@]{1,64}@[^\s@]+\.[a-z]{2,24}$/i.test(email) || email.length > 254) { err('e_email'); $('#su-email').focus(); return; }
-    if (!ok) { err('e_ok'); return; }
-    btn.disabled = true; msg.className = 'msg'; msg.textContent = L.sending;
-    post({ action: 'tester_signup', email: email, consent: true, lang: lang, hp: form.company.value })
-      .then(function (r) {
-        btn.disabled = false;
-        if (r.status === 200 && r.body && r.body.ok) { $('#betabox').classList.add('sent'); msg.textContent = ''; return; }
-        var c = r.body && r.body.error && r.body.error.code;
-        err(c === 'bad_email' ? 'e_email' : c === 'consent' ? 'e_ok' : c === 'rate_limited' ? 'e_rate' : 'e_net');
-      })
-      .catch(function () { btn.disabled = false; err('e_net'); });
-  });
+  /* ---------- sign-up forms (box at the bottom, and the highlighted one in the hero) ---------- */
+  function signup(form, ids, done) {
+    if (!form || CLOSED) return;
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var L = T[lang], msg = $(ids.msg), btn = $(ids.btn), input = $(ids.email), email = input.value.trim(), ok = $(ids.ok).checked;
+      var test = ids.test && $(ids.test) ? $(ids.test).checked : false;
+      var err = function (k) { msg.textContent = L[k]; msg.className = 'msg err'; };
+      if (!/^[^\s@]{1,64}@[^\s@]+\.[a-z]{2,24}$/i.test(email) || email.length > 254) { err('e_email'); input.focus(); return; }
+      if (!ok) { err('e_ok'); return; }
+      btn.disabled = true; msg.className = 'msg'; msg.textContent = L.sending;
+      post({ action: 'tester_signup', email: email, consent: true, lang: lang, hp: form.company.value, test: NOTIFY ? test : true })
+        .then(function (r) {
+          btn.disabled = false;
+          if (r.status === 200 && r.body && r.body.ok) { msg.textContent = ''; done(); return; }
+          var c = r.body && r.body.error && r.body.error.code;
+          err(c === 'bad_email' ? 'e_email' : c === 'consent' ? 'e_ok' : c === 'rate_limited' ? 'e_rate' : 'e_net');
+        })
+        .catch(function () { btn.disabled = false; err('e_net'); });
+    });
+  }
+  signup($('#su'), { msg: '#su-msg', btn: '#su-btn', email: '#su-email', ok: '#su-ok', test: '#su-test' }, function () { $('#betabox').classList.add('sent'); });
+  if (NOTIFY) signup($('#hsu'), { msg: '#hsu-msg', btn: '#hsu-btn', email: '#hsu-email', ok: '#hsu-ok' }, function () { $('#hsu').classList.add('sent'); $('#hsu-done').hidden = false; });
 
   /* ---------- counters ---------- */
   function fmtCount(el, k) {

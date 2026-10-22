@@ -475,3 +475,26 @@ form.su{display:flex;flex-direction:column;gap:12px;margin-top:26px;text-align:l
 .soon-h{display:flex;gap:18px;font-family:var(--f-m);font-weight:700;font-size:12.5px;color:var(--muted)}
 .beta-closed .beta form,.beta-closed .beta .done{display:none!important}
 .beta-closed .soon{display:flex}
+
+/* launch-notification sign-up (config.js: signup: 'notify') */
+.su.hsu,.su .opt,.hsu-done{display:none}
+.notify-mode .su.hsu{display:flex}
+.notify-mode .su .opt{display:flex}
+.notify-mode .hero-ctas .btn{display:none}
+.su.hsu{width:100%;max-width:520px;margin-top:2px;gap:10px}
+.hsu-t{font-weight:700;font-size:15.5px;color:var(--fg);text-align:center}
+.hsu-row{display:flex;gap:6px;padding:6px;border-radius:18px;background:rgba(21,23,29,.88);border:1.5px solid rgba(200,240,74,.6);animation:hsuGlow 2.8s ease-in-out infinite}
+@keyframes hsuGlow{0%,100%{box-shadow:0 0 0 0 rgba(200,240,74,.0),0 14px 40px rgba(200,240,74,.12)}50%{box-shadow:0 0 0 7px rgba(200,240,74,.12),0 14px 46px rgba(200,240,74,.26)}}
+.su.hsu .hsu-row input[type=email]{flex:1;min-width:0;height:50px;border:0;background:transparent;box-shadow:none;padding:0 12px;font-size:16px}
+.su.hsu .hsu-row input[type=email]:focus{box-shadow:none}
+.su.hsu .hsu-row .btn{height:50px;width:auto;padding:0 16px;border-radius:13px;gap:8px;flex-shrink:0}
+.su.hsu label.ok{font-size:12.5px}
+.su.hsu .msg{min-height:0;margin:0}
+.hsu.sent{display:none!important}
+.hsu-done:not([hidden]){display:inline-flex;align-items:center;gap:10px;padding:12px 16px;border-radius:14px;background:rgba(200,240,74,.12);border:1px solid rgba(200,240,74,.45);color:var(--lime);font-weight:700}
+.hsu-done svg{width:20px;height:20px;flex-shrink:0}
+@media (min-width:980px){.hsu-t{text-align:left}}
+@media (prefers-reduced-motion:reduce){.hsu-row{animation:none}}
+.notify-mode .hero-copy .su.hsu,.notify-mode .hero-copy .hsu-done{order:1}
+.notify-mode .hero-copy .hero-ctas{order:2}
+.notify-mode .hero-copy .pill,.notify-mode .hero-copy .cue{order:3}
