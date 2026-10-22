@@ -498,3 +498,12 @@ form.su{display:flex;flex-direction:column;gap:12px;margin-top:26px;text-align:l
 .notify-mode .hero-copy .su.hsu,.notify-mode .hero-copy .hsu-done{order:1}
 .notify-mode .hero-copy .hero-ctas{order:2}
 .notify-mode .hero-copy .pill,.notify-mode .hero-copy .cue{order:3}
+
+/* Hero (notify mode): link down to the tester sign-up */
+.hsu-alt{display:none}
+.notify-mode .hero-copy .hsu-alt{display:inline-flex;order:1;align-items:center;gap:9px;padding:9px 14px;border-radius:999px;border:1px solid rgba(200,240,74,.35);background:rgba(200,240,74,.06);color:var(--fg);font-size:14.5px;font-weight:600;text-decoration:none;transition:background .2s,border-color .2s,transform .2s}
+.notify-mode .hero-copy .hsu-alt:hover{background:rgba(200,240,74,.13);border-color:var(--lime);transform:translateY(-1px)}
+.hsu-alt svg{width:18px;height:18px;flex-shrink:0;color:var(--lime)}
+.hsu-alt b{color:var(--lime);transition:transform .2s}
+.hsu-alt:hover b{transform:translateX(3px)}
+#hsu{scroll-margin-top:110px}

@@ -193,20 +193,26 @@
   var MODE = (window.SITE && window.SITE.signup) || (window.SITE && window.SITE.testerSignup === false ? 'closed' : 'tester');
   var CLOSED = MODE === 'closed', NOTIFY = MODE === 'notify';
   if (NOTIFY) {
-    Object.assign(T.hu, { cta_tester: 'Értesíts az indulásról', nav_beta: 'Értesítés', b_k: 'Hamarosan a Google Play-en', b_t: 'Szólunk, amint <span class="grad">letölthető.</span>',
-      b_lead: 'Add meg az e-mail-címedet, és küldünk egy e-mailt, amikor a VERDIKT Check felkerül a Google Play-re. Ha szeretnéd, tesztelőként már előtte kipróbálhatod.',
-      b_btn: 'Értesíts', b_test: 'Tesztelő is lennék – szólj, ha indul a zárt teszt (Androidos telefon és Google-fiók kell hozzá).',
-      b_fine: 'Spamet nem küldünk: csak az induláskor írunk, és ha bejelölted, a tesztelési meghívót. A címedet bármikor töröltetheted.',
-      b_done: 'Feliratkoztál!', b_done_s: 'Szólunk, amint a VERDIKT Check letölthető.', fin_btn: 'Értesíts, amikor letölthető',
-      h_t: 'Kérj értesítést – szólunk, amint letölthető.', h_ph: 'E-mail-címed', h_btn: 'Értesíts', h_done: 'Feliratkoztál! Szólunk, amint letölthető.' });
-    Object.assign(T.en, { cta_tester: 'Notify me at launch', nav_beta: 'Get notified', b_k: 'Coming soon to Google Play', b_t: 'We’ll tell you <span class="grad">when it’s out.</span>',
-      b_lead: 'Enter your email and we’ll send you one email when VERDIKT Check is on Google Play. If you like, you can try it even earlier as a tester.',
-      b_btn: 'Notify me', b_test: 'I’d like to be a tester too – tell me when the closed test starts (needs an Android phone and a Google account).',
-      b_fine: 'No spam: we only write at launch and, if you ticked it, with the tester invite. You can have your address deleted any time.',
-      b_done: 'You’re on the list!', b_done_s: 'We’ll tell you as soon as VERDIKT Check is out.', fin_btn: 'Notify me when it’s out',
-      h_t: 'Get notified – we’ll tell you when it’s out.', h_ph: 'Your email', h_btn: 'Notify me', h_done: 'You’re on the list! We’ll tell you when it’s out.' });
-    T.hu.faq[6][1] = 'Hamarosan a Google Play-en, Androidra. <a href="#beta">Iratkozz fel</a>, és szólunk, amint letölthető – ha szeretnéd, tesztelőként már előtte kipróbálhatod.';
-    T.en.faq[6][1] = 'Soon on Google Play, for Android. <a href="#beta">Sign up</a> and we’ll tell you when it’s out – if you like, you can try it earlier as a tester.';
+    // Top of the page: "tell me when it's out". The box further down stays a tester sign-up.
+    Object.assign(T.hu, { cta_tester: 'Értesíts az indulásról',
+      b_k: 'Zárt teszt · Android', b_t: 'Legyél <span class="grad">tesztelő.</span>',
+      b_lead: 'Próbáld ki a VERDIKT Checket elsőként, még a megjelenés előtt. Add meg a Google-fiókod e-mail-címét (amivel a Play Áruházat használod), és küldjük a meghívót, amint indul a zárt teszt.',
+      b_btn: 'Jelentkezem tesztelőnek',
+      b_fine: 'Androidos telefon kell hozzá. Spamet nem küldünk: csak a tesztelői meghívót küldjük, és szólunk az induláskor. A címedet bármikor töröltetheted.',
+      b_done: 'Megvagy!', b_done_s: 'Amint indul a zárt teszt, küldjük a meghívót a megadott címre.',
+      h_t: 'Kérj értesítést – szólunk, amint letölthető.', h_ph: 'E-mail-címed', h_btn: 'Értesíts', h_done: 'Feliratkoztál! Szólunk, amint letölthető.',
+      h_alt: 'Vagy legyél tesztelő, és próbáld ki elsőként' });
+    Object.assign(T.en, { cta_tester: 'Notify me at launch',
+      b_k: 'Closed test · Android', b_t: 'Become a <span class="grad">tester.</span>',
+      b_lead: 'Try VERDIKT Check first, before it launches. Enter your Google account email (the one you use for the Play Store) and we’ll send you an invite as soon as the closed test starts.',
+      b_btn: 'Sign me up as a tester',
+      b_fine: 'You’ll need an Android phone. No spam: we only send the tester invite and tell you at launch. You can have your address deleted any time.',
+      b_done: 'You’re in!', b_done_s: 'We’ll send the invite to your address as soon as the closed test starts.',
+      h_t: 'Get notified – we’ll tell you when it’s out.', h_ph: 'Your email', h_btn: 'Notify me', h_done: 'You’re on the list! We’ll tell you when it’s out.',
+      h_alt: 'Or become a tester and try it first' });
+    T.hu.faq[6][1] = 'Hamarosan a Google Play-en, Androidra. <a href="#hsu">Kérj értesítést</a>, és szólunk, amint letölthető – vagy <a href="#beta">jelentkezz tesztelőnek</a>, és már előtte kipróbálhatod.';
+    T.en.faq[6][1] = 'Soon on Google Play, for Android. <a href="#hsu">Get notified</a> and we’ll tell you when it’s out – or <a href="#beta">sign up as a tester</a> and try it even earlier.';
+    var hc = document.querySelector('.hdr-cta'); if (hc) hc.setAttribute('href', '#hsu');
     document.documentElement.classList.add('notify-mode');
   }
   if (CLOSED) {
@@ -354,12 +360,11 @@
     form.addEventListener('submit', function (e) {
       e.preventDefault();
       var L = T[lang], msg = $(ids.msg), btn = $(ids.btn), input = $(ids.email), email = input.value.trim(), ok = $(ids.ok).checked;
-      var test = ids.test && $(ids.test) ? $(ids.test).checked : false;
       var err = function (k) { msg.textContent = L[k]; msg.className = 'msg err'; };
       if (!/^[^\s@]{1,64}@[^\s@]+\.[a-z]{2,24}$/i.test(email) || email.length > 254) { err('e_email'); input.focus(); return; }
       if (!ok) { err('e_ok'); return; }
       btn.disabled = true; msg.className = 'msg'; msg.textContent = L.sending;
-      post({ action: 'tester_signup', email: email, consent: true, lang: lang, hp: form.company.value, test: NOTIFY ? test : true })
+      post({ action: 'tester_signup', email: email, consent: true, lang: lang, hp: form.company.value, test: !!ids.tester })
         .then(function (r) {
           btn.disabled = false;
           if (r.status === 200 && r.body && r.body.ok) { msg.textContent = ''; done(); return; }
@@ -369,8 +374,9 @@
         .catch(function () { btn.disabled = false; err('e_net'); });
     });
   }
-  signup($('#su'), { msg: '#su-msg', btn: '#su-btn', email: '#su-email', ok: '#su-ok', test: '#su-test' }, function () { $('#betabox').classList.add('sent'); });
-  if (NOTIFY) signup($('#hsu'), { msg: '#hsu-msg', btn: '#hsu-btn', email: '#hsu-email', ok: '#hsu-ok' }, function () { $('#hsu').classList.add('sent'); $('#hsu-done').hidden = false; });
+  // The box at the bottom is a tester sign-up; the highlighted form in the hero (notify mode) is "tell me when it's out".
+  signup($('#su'), { msg: '#su-msg', btn: '#su-btn', email: '#su-email', ok: '#su-ok', tester: true }, function () { $('#betabox').classList.add('sent'); });
+  if (NOTIFY) signup($('#hsu'), { msg: '#hsu-msg', btn: '#hsu-btn', email: '#hsu-email', ok: '#hsu-ok', tester: false }, function () { $('#hsu').classList.add('sent'); $('#hsu-done').hidden = false; });
 
   /* ---------- counters ---------- */
   function fmtCount(el, k) {
