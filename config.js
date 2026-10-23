@@ -6,9 +6,11 @@ window.SITE = {
   supabaseUrl: 'https://vtiuuginymzhxndrmjxs.supabase.co', // SUPABASE_URL (public project address)
   anonKey: 'IDE_IRD_A_SUPABASE_ANON_KEY',          // SUPABASE_ANON_KEY (the public publishable key)
   playUrl: 'https://play.google.com/store/apps/details?id=com.verdiktcheck.app',
-  // Sign-up on the homepage: 'notify' = "tell me when it's out" (+ optional tester tick box), 'tester' = closed-test
-  // sign-up, 'closed' = no sign-up, only "coming soon".
-  signup: 'notify'
+  // Sign-up on the homepage: 'notify' = "tell me when it's out" at the top and a tester sign-up box further down,
+  // 'tester' = closed-test sign-up only, 'closed' = no sign-up, only "coming soon".
+  signup: 'notify',
+  // Tester sign-up box (with signup: 'notify'): false = shown as "coming soon" without a form, true = open.
+  testers: false
 };
 document.addEventListener('DOMContentLoaded', function () {
   document.querySelectorAll('[data-site]').forEach(function (el) {
