@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', function () {
   } catch (e) { /* private mode: count as usual */ }
   if (!/^https:$/.test(location.protocol) || navigator.webdriver || !window.SITE || !SITE.supabaseUrl || /IDE_IRD/.test(SITE.supabaseUrl)) return;
   var p = location.pathname.replace(/\/+$/, '').split('/').pop().replace(/\.html$/, '') || 'index';
-  var page = { index: 'home', verify: 'verify', privacy: 'privacy', terms: 'terms', 'delete-account': 'delete', 'child-safety': 'child', f: 'friend' }[p] || 'other';
+  var page = { index: 'home', tesztelo: 'tester', verify: 'verify', privacy: 'privacy', terms: 'terms', 'delete-account': 'delete', 'child-safety': 'child', f: 'friend' }[p] || 'other';
   var ua = navigator.userAgent || '', ref = '';
   try { ref = document.referrer ? new URL(document.referrer).hostname.replace(/^www\./, '') : ''; } catch (e) { ref = ''; }
   var utm = ((q.match(/[?&]utm_source=([^&#]+)/) || [])[1] || '').toLowerCase();
