@@ -507,3 +507,7 @@ form.su{display:flex;flex-direction:column;gap:12px;margin-top:26px;text-align:l
 .hsu-alt b{color:var(--lime);transition:transform .2s}
 .hsu-alt:hover b{transform:translateX(3px)}
 #hsu{scroll-margin-top:110px}
+/* Notify mode with the tester box still closed: no tester link in the hero, a "notify me" button in the box */
+.notify-mode.beta-closed .hero-copy .hsu-alt{display:none}
+.soon-cta{display:none}
+.notify-mode .soon .soon-cta{display:inline-flex;margin-top:6px}
