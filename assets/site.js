@@ -61,6 +61,7 @@
       b_ok: 'Elmúltam 16 éves, és elfogadom az <a href="privacy.html" target="_blank" rel="noopener">adatkezelési tájékoztatót</a>.',
       b_fine: 'Androidos telefon kell hozzá. Spamet nem küldünk – a címedet csak a meghívóhoz használjuk.',
       b_done: 'Megvagy!', b_done_s: 'Hamarosan küldjük a meghívót a megadott címre.',
+      b_r1: 'Androidos telefon', b_r2: 'Google-fiók (Gmail)', b_r3: '14 nap tesztelés', b_r4: '1 hónap PRO ajándék', b_go: 'Jelentkezem tesztelőnek', b_go_s: 'Rövid jelentkezési lap – kb. egy perc.',
       e_email: 'Ez nem tűnik érvényes e-mail-címnek.', e_ok: 'Pipáld be, hogy elmúltál 16 éves, és elfogadod a tájékoztatót.',
       e_rate: 'Túl sok jelentkezés érkezett innen. Próbáld újra holnap.', e_net: 'Most nem sikerült elküldeni. Próbáld újra kicsit később.', sending: 'Küldés…',
       fin_t: 'Mielőtt fizetsz, <span class="grad">VERDIKT.</span>', fin_s: 'Pár fotó, és tudod, mit veszel.', fin_btn: 'Legyél tesztelő – próbáld ki elsőként',
@@ -153,6 +154,7 @@
       b_ok: 'I’m 16 or older and I accept the <a href="privacy.html#en" target="_blank" rel="noopener">privacy policy</a>.',
       b_fine: 'You’ll need an Android phone. No spam – we only use your address for the invite.',
       b_done: 'You’re in!', b_done_s: 'We’ll send the invite to your address soon.',
+      b_r1: 'Android phone', b_r2: 'Google account (Gmail)', b_r3: '14 days of testing', b_r4: '1 month of PRO, free', b_go: 'Sign me up as a tester', b_go_s: 'A short application form – about a minute.',
       e_email: 'That doesn’t look like a valid email address.', e_ok: 'Please confirm you’re 16+ and accept the privacy policy.',
       e_rate: 'Too many sign-ups from here. Please try again tomorrow.', e_net: 'Couldn’t send it right now. Please try again a bit later.', sending: 'Sending…',
       fin_t: 'Before you pay, <span class="grad">VERDIKT.</span>', fin_s: 'A few photos and you know what you’re buying.', fin_btn: 'Become a tester – try it first',
@@ -198,7 +200,7 @@
     // Top of the page: "tell me when it's out". The box further down stays a tester sign-up.
     Object.assign(T.hu, { cta_tester: 'Értesíts az indulásról',
       b_k: 'Zárt teszt · Android', b_t: 'Legyél <span class="grad">tesztelő.</span>',
-      b_lead: 'Próbáld ki a VERDIKT Checket elsőként, még a megjelenés előtt. Add meg a Google-fiókod e-mail-címét (amivel a Play Áruházat használod), és küldjük a meghívót, amint indul a zárt teszt.',
+      b_lead: 'Próbáld ki a VERDIKT Checket elsőként, még a megjelenés előtt. Töltsd ki a rövid jelentkezési lapot, és amint indul a zárt teszt, küldjük a meghívót.',
       b_btn: 'Jelentkezem tesztelőnek',
       b_fine: 'Androidos telefon kell hozzá. Spamet nem küldünk: csak a tesztelői meghívót küldjük, és szólunk az induláskor. A címedet bármikor töröltetheted.',
       b_done: 'Megvagy!', b_done_s: 'Amint indul a zárt teszt, küldjük a meghívót a megadott címre.',
@@ -206,14 +208,14 @@
       h_alt: 'Vagy legyél tesztelő, és próbáld ki elsőként' });
     Object.assign(T.en, { cta_tester: 'Notify me at launch',
       b_k: 'Closed test · Android', b_t: 'Become a <span class="grad">tester.</span>',
-      b_lead: 'Try VERDIKT Check first, before it launches. Enter your Google account email (the one you use for the Play Store) and we’ll send you an invite as soon as the closed test starts.',
+      b_lead: 'Try VERDIKT Check first, before it launches. Fill in the short application form and we’ll send you an invite as soon as the closed test starts.',
       b_btn: 'Sign me up as a tester',
       b_fine: 'You’ll need an Android phone. No spam: we only send the tester invite and tell you at launch. You can have your address deleted any time.',
       b_done: 'You’re in!', b_done_s: 'We’ll send the invite to your address as soon as the closed test starts.',
       h_t: 'Get notified – we’ll tell you when it’s out.', h_ph: 'Your email', h_btn: 'Notify me', h_done: 'You’re on the list! We’ll tell you when it’s out.',
       h_alt: 'Or become a tester and try it first' });
-    T.hu.faq[6][1] = 'Hamarosan a Google Play-en, Androidra. <a href="#hsu">Kérj értesítést</a>, és szólunk, amint letölthető – vagy <a href="#beta">jelentkezz tesztelőnek</a>, és már előtte kipróbálhatod.';
-    T.en.faq[6][1] = 'Soon on Google Play, for Android. <a href="#hsu">Get notified</a> and we’ll tell you when it’s out – or <a href="#beta">sign up as a tester</a> and try it even earlier.';
+    T.hu.faq[6][1] = 'Hamarosan a Google Play-en, Androidra. <a href="#hsu">Kérj értesítést</a>, és szólunk, amint letölthető – vagy <a href="tesztelo.html">jelentkezz tesztelőnek</a>, és már előtte kipróbálhatod.';
+    T.en.faq[6][1] = 'Soon on Google Play, for Android. <a href="#hsu">Get notified</a> and we’ll tell you when it’s out – or <a href="tesztelo.html">sign up as a tester</a> and try it even earlier.';
     var hc = document.querySelector('.hdr-cta'); if (hc) hc.setAttribute('href', '#hsu');
     document.documentElement.classList.add('notify-mode');
     if (TCLOSED) {
