@@ -32,7 +32,8 @@
       done_t: function (n) { return 'Megvagy' + (n ? ', ' + n : '') + '!'; },
       done_p: function (e) { return 'Amint indul a zárt teszt, a(z) ' + e + ' címre küldjük a meghívót. Addig kövess minket TikTokon és Instagramon!'; },
       back: 'Vissza a főoldalra',
-      cl_t: 'A jelentkezés hamarosan nyílik', cl_p: 'A zárt teszt nemsokára indul. Kérj értesítést a főoldalon, és szólunk, amint jelentkezhetsz.', cl_btn: 'Kérek értesítést',
+      cl_t: 'A jelentkezés hamarosan nyílik', cl_p: 'A zárt teszt nemsokára indul. Add meg az e-mail-címedet, és szólunk, amint jelentkezhetsz.', cl_done: 'Feliratkoztál! Szólunk, amint jelentkezhetsz.',
+      b_label: 'E-mail-cím', h_ph: 'E-mail-címed', h_btn: 'Értesíts', b_ok: 'Elmúltam 16 éves, és elfogadom az <a href="privacy.html" target="_blank" rel="noopener">adatkezelési tájékoztatót</a>.', e_ok: 'Pipáld ki, hogy elfogadod az adatkezelési tájékoztatót.',
       st_t: 'Mi történik ezután?', s1t: 'Jelentkezel', s1: 'Kitöltöd a lapot – kb. egy perc.',
       s2t: 'Megjön a meghívó', s2: 'Amikor indul a zárt teszt, e-mailben küldjük a linket a Google Play-hez.',
       s3t: 'Letöltöd és tesztelsz', s3: 'A Play Áruházból telepíted, és 14 napig használod. Ha valami nem stimmel, szólsz.',
@@ -68,7 +69,8 @@
       done_t: function (n) { return 'You’re in' + (n ? ', ' + n : '') + '!'; },
       done_p: function (e) { return 'As soon as the closed test starts, we’ll send the invite to ' + e + '. Until then, follow us on TikTok and Instagram!'; },
       back: 'Back to the homepage',
-      cl_t: 'Sign-ups open soon', cl_p: 'The closed test starts soon. Get notified on the homepage and we’ll tell you as soon as you can sign up.', cl_btn: 'Notify me',
+      cl_t: 'Sign-ups open soon', cl_p: 'The closed test starts soon. Enter your email and we’ll tell you as soon as you can sign up.', cl_done: 'You’re on the list! We’ll tell you as soon as you can sign up.',
+      b_label: 'Email address', h_ph: 'Your email', h_btn: 'Notify me', b_ok: 'I’m 16 or older and I accept the <a href="privacy.html" target="_blank" rel="noopener">privacy policy</a>.', e_ok: 'Please tick the box to accept the privacy policy.',
       st_t: 'What happens next?', s1t: 'You sign up', s1: 'Fill in the form – about a minute.',
       s2t: 'The invite arrives', s2: 'When the closed test starts, we email you the Google Play link.',
       s3t: 'Install and test', s3: 'Install it from the Play Store and use it for 14 days. If something’s off, tell us.',
@@ -170,6 +172,26 @@
         err(c === 'bad_email' ? 'e_email' : c === 'bad_name' ? 'e_name' : c === 'bad_birth' ? 'e_birth' : c === 'too_young' ? 'e_young' : c === 'consent' || c === 'terms' ? 'e_c3' : c === 'rate_limited' ? 'e_rate' : 'e_net');
       })
       .catch(function () { btn.disabled = false; err('e_net'); });
+  });
+
+  // Closed state: "tell me when I can sign up" form (launch-notification list, not a tester application).
+  var cf = $('#csu');
+  if (cf) cf.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var L = T[lang], cm = $('#csu-msg'), cb = $('#csu-btn'), ce = $('#csu-email'), mail = ce.value.trim();
+    var bad = function (k) { cm.textContent = L[k]; cm.className = 'msg err'; };
+    if (!/^[^\s@]{1,64}@[^\s@]+\.[a-z]{2,24}$/i.test(mail) || mail.length > 254) { bad('e_email'); ce.focus(); return; }
+    if (!$('#csu-ok').checked) { bad('e_ok'); return; }
+    cb.disabled = true; cm.className = 'msg'; cm.textContent = L.sending;
+    fetch(api, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ action: 'tester_signup', email: mail, consent: true, lang: lang, hp: cf.company.value, test: false }) })
+      .then(function (r) { return r.json().catch(function () { return {}; }).then(function (j) { return { status: r.status, body: j }; }); })
+      .then(function (r) {
+        cb.disabled = false;
+        if (r.status === 200 && r.body && r.body.ok) { cm.textContent = ''; cf.classList.add('sent'); $('#csu-done').hidden = false; return; }
+        var c = r.body && r.body.error && r.body.error.code;
+        bad(c === 'bad_email' ? 'e_email' : c === 'consent' ? 'e_ok' : c === 'rate_limited' ? 'e_rate' : 'e_net');
+      })
+      .catch(function () { cb.disabled = false; bad('e_net'); });
   });
 
   applyLang(lang);

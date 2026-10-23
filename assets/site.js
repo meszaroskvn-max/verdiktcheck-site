@@ -221,11 +221,11 @@
     if (TCLOSED) {
       Object.assign(T.hu, { b_k: 'Zárt teszt · hamarosan', b_t: 'Tesztelés <span class="grad">hamarosan.</span>',
         b_lead: 'A VERDIKT Check zárt tesztje nemsokára indul a Google Play-en, Androidra. A tesztelő-jelentkezés most még zárva van.',
-        soon_follow: 'Kérj értesítést az oldal tetején, vagy kövess minket – ott szólunk elsőként, amikor tesztelőnek jelentkezhetsz.',
+        soon_follow: 'Add meg az e-mail-címedet, és szólunk, amint tesztelőnek jelentkezhetsz – vagy kövess minket, ott is jelezzük elsőként.', bsu_done: 'Feliratkoztál! Szólunk, amint jelentkezhetsz tesztelőnek.',
         soon_cta: 'Kérek értesítést', fin_btn: 'Értesíts, amikor letölthető' });
       Object.assign(T.en, { b_k: 'Closed test · coming soon', b_t: 'Testing <span class="grad">soon.</span>',
         b_lead: 'The closed test of VERDIKT Check starts soon on Google Play, for Android. Tester sign-ups aren’t open yet.',
-        soon_follow: 'Get notified at the top of the page, or follow us – that’s where we’ll tell you first when you can sign up as a tester.',
+        soon_follow: 'Enter your email and we’ll tell you as soon as you can sign up as a tester – or follow us, we’ll announce it there first too.', bsu_done: 'You’re on the list! We’ll tell you as soon as you can sign up as a tester.',
         soon_cta: 'Notify me', fin_btn: 'Notify me when it’s out' });
       T.hu.faq[6][1] = 'Hamarosan a Google Play-en, Androidra. <a href="#hsu">Kérj értesítést</a>, és szólunk, amint letölthető. A zárt teszt is nemsokára indul – a tesztelő-jelentkezést itt és a közösségi oldalainkon jelezzük.';
       T.en.faq[6][1] = 'Soon on Google Play, for Android. <a href="#hsu">Get notified</a> and we’ll tell you when it’s out. The closed test starts soon too – we’ll announce tester sign-ups here and on our socials.';
@@ -394,6 +394,7 @@
   }
   // The box at the bottom is a tester sign-up; the highlighted form in the hero (notify mode) is "tell me when it's out".
   if (!TCLOSED) signup($('#su'), { msg: '#su-msg', btn: '#su-btn', email: '#su-email', ok: '#su-ok', tester: true }, function () { $('#betabox').classList.add('sent'); });
+  if (NOTIFY && TCLOSED) signup($('#bsu'), { msg: '#bsu-msg', btn: '#bsu-btn', email: '#bsu-email', ok: '#bsu-ok', tester: false }, function () { $('#bsu').classList.add('sent'); $('#bsu-done').hidden = false; });
   if (NOTIFY) signup($('#hsu'), { msg: '#hsu-msg', btn: '#hsu-btn', email: '#hsu-email', ok: '#hsu-ok', tester: false }, function () { $('#hsu').classList.add('sent'); $('#hsu-done').hidden = false; });
 
   /* ---------- counters ---------- */

@@ -473,7 +473,7 @@ form.su{display:flex;flex-direction:column;gap:12px;margin-top:26px;text-align:l
 .soon{display:none;flex-direction:column;align-items:center;gap:14px;margin-top:26px}
 .soon-t{color:var(--fg2);font-size:15.5px;line-height:1.5;max-width:440px}
 .soon-h{display:flex;gap:18px;font-family:var(--f-m);font-weight:700;font-size:12.5px;color:var(--muted)}
-.beta-closed .beta form,.beta-closed .beta .done{display:none!important}
+.beta-closed .beta .done{display:none!important}
 .beta-closed .soon{display:flex}
 
 /* launch-notification sign-up (config.js: signup: 'notify') */
@@ -598,3 +598,9 @@ form.su.tf{margin-top:0;gap:16px}
 .beta-go .btn svg{width:18px;height:18px}
 .beta-go .fine{font-size:13px;color:var(--muted)}
 .beta-closed .beta .beta-go{display:none}
+
+/* "Notify me" form right inside the closed tester box (homepage) and on the closed tester page */
+.notify-mode .soon .su.nsu,.tf-closed .su.nsu{display:flex}
+.su.nsu{width:100%;max-width:520px;margin:4px auto 0;gap:10px;text-align:left}
+.tf-closed .su.nsu label.ok{font-size:12.5px}
+.su.nsu+.hsu-done:not([hidden]){margin:4px auto 0}
