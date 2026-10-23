@@ -10,7 +10,7 @@ window.SITE = {
   // 'tester' = closed-test sign-up only, 'closed' = no sign-up, only "coming soon".
   signup: 'notify',
   // Tester sign-up box (with signup: 'notify'): false = shown as "coming soon" without a form, true = open.
-  testers: true
+  testers: false
 };
 document.addEventListener('DOMContentLoaded', function () {
   document.querySelectorAll('[data-site]').forEach(function (el) {
