@@ -240,8 +240,8 @@
     Object.assign(T.en, { cta_tester: 'Testing soon', b_k: 'Closed test · coming soon', b_t: 'Coming <span class="grad">soon.</span>',
       b_lead: 'The closed test of VERDIKT Check starts soon on Google Play, for Android. Sign-ups aren’t open yet.',
       soon_follow: 'Follow us on TikTok and Instagram – that’s where we’ll announce it first when sign-ups open.', fin_btn: 'The closed test starts soon' });
-    T.hu.faq[6][1] = 'Hamarosan a Google Play-en, Androidra. A zárt teszt nemsokára indul – kövess minket <a href="https://www.tiktok.com/@cipomester" target="_blank" rel="noopener">TikTokon</a> vagy <a href="https://www.instagram.com/verdikt_check" target="_blank" rel="noopener">Instagramon</a>, és ott szólunk, amikor jelentkezni lehet.';
-    T.en.faq[6][1] = 'Soon on Google Play, for Android. The closed test starts soon – follow us on <a href="https://www.tiktok.com/@cipomester" target="_blank" rel="noopener">TikTok</a> or <a href="https://www.instagram.com/verdikt_check" target="_blank" rel="noopener">Instagram</a> and we’ll tell you when sign-ups open.';
+    T.hu.faq[6][1] = 'Hamarosan a Google Play-en, Androidra. A zárt teszt nemsokára indul – kövess minket <a href="https://www.tiktok.com/@verdiktcheck" target="_blank" rel="noopener">TikTokon</a> vagy <a href="https://www.instagram.com/verdikt_check" target="_blank" rel="noopener">Instagramon</a>, és ott szólunk, amikor jelentkezni lehet.';
+    T.en.faq[6][1] = 'Soon on Google Play, for Android. The closed test starts soon – follow us on <a href="https://www.tiktok.com/@verdiktcheck" target="_blank" rel="noopener">TikTok</a> or <a href="https://www.instagram.com/verdikt_check" target="_blank" rel="noopener">Instagram</a> and we’ll tell you when sign-ups open.';
     document.documentElement.classList.add('beta-closed');
   } else if (!TCLOSED) { T.hu.soon_follow = ''; T.en.soon_follow = ''; }
   var $ = function (s, r) { return (r || document).querySelector(s); };
