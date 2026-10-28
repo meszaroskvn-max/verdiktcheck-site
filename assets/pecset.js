@@ -185,7 +185,7 @@
     renderStamp(true); startReact('stamp'); say('yay', true);
     var req = post({ action: 'stamp' });
     setTimeout(function () {
-      state.count += 1; if (state.loaded) odoSet(state.count);
+      state.count += 1; if (state.loaded) { counterBox.hidden = false; odoSet(state.count); }
       if (reduce) return;
       shock(); shock('s2');
       cert.classList.remove('thud'); void cert.offsetWidth; cert.classList.add('thud');
@@ -264,7 +264,7 @@
       state.votes = d.votes.map(function (n) { return Math.max(0, +n || 0); });
       if (state.pick >= 0 && state.votes[state.pick] === 0) state.votes[state.pick] = 1;
     }
-    state.loaded = true; counterBox.hidden = false;
+    state.loaded = true; counterBox.hidden = state.count === 0;
     odoSet(state.count); renderPoll(false);
   }
   new MutationObserver(function () { var l = document.documentElement.lang === 'en' ? 'en' : 'hu'; if (l !== lang) { lang = l; applyTexts(); } })
