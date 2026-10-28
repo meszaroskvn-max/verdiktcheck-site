@@ -18,6 +18,7 @@
 <link rel="preload" href="fonts/interdisplay-900.woff" as="font" type="font/woff" crossorigin>
 <link rel="preload" href="fonts/inter-400.woff" as="font" type="font/woff" crossorigin>
 <link rel="stylesheet" href="assets/site.css">
+<link rel="stylesheet" href="assets/pecset.css">
 <script src="config.js"></script>
 </head>
 <body>
@@ -355,6 +356,86 @@
   </div>
 </section>
 
+<!-- ============ Legit-pecsét: visitors stamp the site + quick poll (assets/pecset.css, assets/pecset.js) ============ -->
+<section class="sec pc" id="pecset" style="padding-top:0" aria-labelledby="pc-title">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="kicker rv" data-pc="k">A te verdikted</span>
+      <h2 class="h2 rv d1" id="pc-title" data-pc-html="t">Verdi mindent megítél. <span class="grad">Most te jössz.</span></h2>
+      <p class="lead rv d2" data-pc="lead">Ha tetszik, amit látsz, nyomd rá a LEGIT pecsétet. Egy kattintás, nem kell hozzá regisztráció.</p>
+    </div>
+    <div class="pc-stage">
+      <div class="pc-verdi-col">
+        <div class="pc-bubble" id="pc-bubble" aria-live="polite">Mindent megítélek. Most fordult a kocka.</div>
+        <div class="pc-verdi" id="pc-verdi" aria-hidden="true"></div>
+      </div>
+      <div class="pc-tilt" id="pc-tilt">
+        <div class="pc-halo" aria-hidden="true"></div>
+        <article class="pc-cert" id="pc-cert" aria-labelledby="pc-top">
+          <div class="pc-sheen" aria-hidden="true"></div>
+          <div class="pc-top"><span id="pc-top"><b>VERDIKT</b> · <span data-pc="top">LÁTOGATÓI TANÚSÍTVÁNY</span></span><span>№ VC-WEB-0001</span></div>
+          <dl class="pc-rows">
+            <div><dt data-pc="r1">Vizsgált tárgy</dt><dd>verdiktcheck.com</dd></div>
+            <div><dt data-pc="r2">Vizsgálók</dt><dd data-pc="r2v">a látogatók</dd></div>
+            <div><dt data-pc="r3">Ítélet</dt><dd id="pc-verdict">A te pecsétedre vár</dd></div>
+          </dl>
+          <div class="pc-stamp-row">
+            <div class="pc-zone" id="pc-zone">
+              <svg class="pc-ring" viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="48"/></svg>
+              <span class="pc-hint" data-pc-html="hint">IDE JÖN<br>A PECSÉT</span>
+              <svg class="pc-stamp" id="pc-stamp" viewBox="0 0 200 200" aria-hidden="true">
+                <defs>
+                  <filter id="pc-ink" x="-10%" y="-10%" width="120%" height="120%">
+                    <feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" seed="7" result="n"/>
+                    <feColorMatrix in="n" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -2.2 1.6" result="m"/>
+                    <feComposite in="SourceGraphic" in2="m" operator="in"/>
+                  </filter>
+                  <path id="pc-ringpath" d="M100 100 m-70 0 a70 70 0 1 1 140 0 a70 70 0 1 1 -140 0"/>
+                </defs>
+                <g filter="url(#pc-ink)" fill="none" stroke="#C8F04A">
+                  <circle cx="100" cy="100" r="92" stroke-width="7"/>
+                  <circle cx="100" cy="100" r="80" stroke-width="2.5"/>
+                  <circle cx="100" cy="100" r="54" stroke-width="2.5"/>
+                  <text font-family="'Plex Mono',ui-monospace,monospace" font-weight="700" font-size="12.5" letter-spacing="3.2" fill="#C8F04A" stroke="none"><textPath href="#pc-ringpath" id="pc-ringtext">VERDIKT CHECK · LÁTOGATÓI ÍTÉLET ·</textPath></text>
+                  <path d="M78 82 L94 97 L124 66" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+                  <text x="100" y="132" text-anchor="middle" font-family="'Inter Display','Inter',system-ui,sans-serif" font-weight="900" font-size="34" letter-spacing="-1" fill="#C8F04A" stroke="none">LEGIT</text>
+                </g>
+              </svg>
+            </div>
+            <div class="pc-side">
+              <div class="pc-counter" id="pc-counter">
+                <span class="pc-odo" id="pc-odo" role="status"></span>
+                <span class="pc-counter-l" data-pc="cnt">LEGIT-pecsét eddig</span>
+              </div>
+              <button class="pc-btn pc-btn-lime pulse" type="button" id="pc-btn" aria-pressed="false">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 3h6v5l3 3v3H6v-3l3-3z"/><path d="M5 18h14v3H5z"/></svg>
+                <span id="pc-btn-l">Rányomom a pecsétet</span>
+              </button>
+              <p class="pc-fine" id="pc-fine">Egy látogató, egy pecsét.</p>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+    <div class="pc-poll rv">
+      <div class="pc-poll-head">
+        <h3 id="pc-q" data-pc="q">Mit ellenőriznél először?</h3>
+        <span class="pc-meta" id="pc-meta"></span>
+      </div>
+      <div class="pc-opts" role="group" aria-labelledby="pc-q">
+        <button class="pc-opt" type="button" aria-pressed="false"><span class="bar"></span><span class="lbl">Cipőt</span><span class="pct">Szavazz, és látod az állást</span></button>
+        <button class="pc-opt" type="button" aria-pressed="false"><span class="bar"></span><span class="lbl">Táskát</span><span class="pct">Szavazz, és látod az állást</span></button>
+        <button class="pc-opt" type="button" aria-pressed="false"><span class="bar"></span><span class="lbl">Ruhát</span><span class="pct">Szavazz, és látod az állást</span></button>
+        <button class="pc-opt" type="button" aria-pressed="false"><span class="bar"></span><span class="lbl">Valami mást</span><span class="pct">Szavazz, és látod az állást</span></button>
+      </div>
+      <div class="pc-foot">
+        <p data-pc="foot">Az app hamarosan jön Androidra. Szólunk, amint letölthető.</p>
+        <button class="pc-btn pc-btn-ghost" type="button" id="pc-notify" data-pc="notify">Kérem az értesítést</button>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ============ beta sign-up ============ -->
 <section class="sec" id="beta" style="padding-top:0">
   <div class="wrap">
@@ -417,5 +498,6 @@
 
 <script src="assets/verdi.js"></script>
 <script src="assets/site.js"></script>
+<script src="assets/pecset.js"></script>
 </body>
 </html>
