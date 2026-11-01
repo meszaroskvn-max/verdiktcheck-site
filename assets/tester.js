@@ -7,7 +7,7 @@
       home: 'Főoldal', kicker: 'Zárt teszt · Android', h1a: 'Legyél VERDIKT', h1b: 'tesztelő.',
       lead: 'Próbáld ki elsőként az AI-alapú eredetiség-ellenőrzőt, még mielőtt bárki más letölthetné – és segíts, hogy tökéletes legyen.',
       jump: 'Kitöltöm a lapot',
-      p1t: 'Elsőként próbálod ki', p1: 'Hetekkel a megjelenés előtt.',
+      p1t: 'Elsőként próbálod ki', p1: 'Még a nyilvános megjelenés előtt.',
       p2t: '1 hónap PRO ajándékba', p2: 'A tesztelők köszönetként kapják.',
       p3t: 'Te is alakítod', p3: 'A visszajelzésed bekerül az appba.',
       req_t: 'Mit kérünk tőled?',
@@ -15,7 +15,7 @@
       r2t: 'Google-fiók (Gmail)', r2: 'Amivel a Play Áruházba belépsz – erre küldjük a meghívót.',
       r3t: 'Legalább 14 nap', r3: 'Ennyi ideig tartsd telepítve, és néha használd. Ez a Google feltétele ahhoz, hogy az app megjelenhessen.',
       r4t: 'Őszinte visszajelzés', r4: 'Ha hibát látsz vagy ötleted van, szólj nekünk.',
-      r5t: 'Elmúltál 16 éves', r5: 'Fiatalabbak sajnos még nem jelentkezhetnek.',
+      r5t: 'Elmúltál 18 éves', r5: 'Fiatalabbak sajnos még nem jelentkezhetnek.',
       form_t: 'Jelentkezési lap', f_name: 'Teljes név', ph_name: 'pl. Kovács Anna', f_birth: 'Születési dátum', y: 'Év', m: 'Hónap', d: 'Nap',
       months: ['január', 'február', 'március', 'április', 'május', 'június', 'július', 'augusztus', 'szeptember', 'október', 'november', 'december'],
       age: function (n) { return n + ' éves'; },
@@ -23,19 +23,19 @@
       f_phone: 'Telefonod típusa', opt: '(nem kötelező)', ph_phone: 'pl. Samsung Galaxy A54',
       c1: 'Androidos telefonom van, és ezzel az e-mail-címmel lépek be a Google Play Áruházba.',
       c2: 'Vállalom, hogy legalább 14 napig telepítve tartom és használom az appot, és jelzem, ha hibát találok.',
-      c3: 'Elmúltam 16 éves, és elfogadom az <a href="privacy.html" target="_blank" rel="noopener">adatkezelési tájékoztatót</a>.',
+      c3: 'Elmúltam 18 éves, és elfogadom az <a href="privacy.html" target="_blank" rel="noopener">adatkezelési tájékoztatót</a>.',
       send: 'Jelentkezem tesztelőnek', sending: 'Küldés…',
       fine: 'Az adataidat csak a zárt teszthez használjuk. A nevedet, születési dátumodat és a telefonod típusát legfeljebb 6 hónap után automatikusan töröljük.',
-      e_name: 'Írd be a teljes nevedet.', e_birth: 'Add meg a születési dátumodat.', e_young: '16 éves kor alatt sajnos még nem jelentkezhetsz tesztelőnek.',
+      e_name: 'Írd be a teljes nevedet.', e_birth: 'Add meg a születési dátumodat.', e_young: '18 éves kor alatt sajnos még nem jelentkezhetsz tesztelőnek.',
       e_email: 'Ez nem tűnik érvényes e-mail-címnek.', e_c1: 'Jelöld be, hogy van Androidos telefonod és Google-fiókod.', e_c2: 'Jelöld be, hogy vállalod a 14 napos tesztelést.',
       e_c3: 'Fogadd el az adatkezelési tájékoztatót.', e_rate: 'Túl sok jelentkezés érkezett innen. Próbáld újra holnap.', e_net: 'Nem sikerült elküldeni. Próbáld újra egy perc múlva.',
       done_t: function (n) { return 'Megvagy' + (n ? ', ' + n : '') + '!'; },
-      done_p: function (e) { return 'Amint indul a zárt teszt, a(z) ' + e + ' címre küldjük a meghívót. Addig kövess minket TikTokon és Instagramon!'; },
+      done_p: function (e) { return 'A zárt teszt már fut! 1–2 napon belül a(z) ' + e + ' címre küldjük a meghívót a Google Play-hez. Addig kövess minket TikTokon és Instagramon!'; },
       back: 'Vissza a főoldalra',
       cl_t: 'A jelentkezés hamarosan nyílik', cl_p: 'A zárt teszt nemsokára indul. Add meg az e-mail-címedet, és szólunk, amint jelentkezhetsz.', cl_done: 'Feliratkoztál! Szólunk, amint jelentkezhetsz.',
       b_label: 'E-mail-cím', h_ph: 'E-mail-címed', h_btn: 'Értesíts', b_ok: 'Elmúltam 16 éves, és elfogadom az <a href="privacy.html" target="_blank" rel="noopener">adatkezelési tájékoztatót</a>.', e_ok: 'Pipáld ki, hogy elfogadod az adatkezelési tájékoztatót.',
       st_t: 'Mi történik ezután?', s1t: 'Jelentkezel', s1: 'Kitöltöd a lapot – kb. egy perc.',
-      s2t: 'Megjön a meghívó', s2: 'Amikor indul a zárt teszt, e-mailben küldjük a linket a Google Play-hez.',
+      s2t: 'Megjön a meghívó', s2: '1–2 napon belül e-mailben küldjük a linket a Google Play-hez.',
       s3t: 'Letöltöd és tesztelsz', s3: 'A Play Áruházból telepíted, és 14 napig használod. Ha valami nem stimmel, szólsz.',
       l_terms: 'Felhasználási feltételek', l_privacy: 'Adatvédelem', indep: 'Független szolgáltatás, egyik márkával sem áll kapcsolatban.',
       title: 'Tesztelő-jelentkezés – VERDIKT Check'
@@ -44,7 +44,7 @@
       home: 'Home', kicker: 'Closed test · Android', h1a: 'Become a VERDIKT', h1b: 'tester.',
       lead: 'Try the AI authenticity checker before anyone else can download it – and help us make it perfect.',
       jump: 'Fill in the form',
-      p1t: 'Try it first', p1: 'Weeks before the launch.',
+      p1t: 'Try it first', p1: 'Before the public launch.',
       p2t: '1 month of PRO, free', p2: 'Our thank-you to testers.',
       p3t: 'Shape the app', p3: 'Your feedback goes into the app.',
       req_t: 'What we ask of you',
@@ -52,7 +52,7 @@
       r2t: 'A Google account (Gmail)', r2: 'The one you use for the Play Store – the invite goes there.',
       r3t: 'At least 14 days', r3: 'Keep it installed that long and use it now and then. Google requires this before the app can launch.',
       r4t: 'Honest feedback', r4: 'If you see a bug or have an idea, tell us.',
-      r5t: 'You’re 16 or older', r5: 'Younger people can’t sign up yet, sorry.',
+      r5t: 'You’re 18 or older', r5: 'Younger people can’t sign up yet, sorry.',
       form_t: 'Application form', f_name: 'Full name', ph_name: 'e.g. Anna Smith', f_birth: 'Date of birth', y: 'Year', m: 'Month', d: 'Day',
       months: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
       age: function (n) { return n + ' years old'; },
@@ -60,19 +60,19 @@
       f_phone: 'Your phone model', opt: '(optional)', ph_phone: 'e.g. Samsung Galaxy A54',
       c1: 'I have an Android phone and use this email address for the Google Play Store.',
       c2: 'I’ll keep the app installed and use it for at least 14 days, and tell you if I find a bug.',
-      c3: 'I’m 16 or older and I accept the <a href="privacy.html" target="_blank" rel="noopener">privacy policy</a>.',
+      c3: 'I’m 18 or older and I accept the <a href="privacy.html" target="_blank" rel="noopener">privacy policy</a>.',
       send: 'Sign me up as a tester', sending: 'Sending…',
       fine: 'We only use your details for the closed test. Your name, date of birth and phone model are deleted automatically after 6 months at the latest.',
-      e_name: 'Enter your full name.', e_birth: 'Enter your date of birth.', e_young: 'Sorry, you need to be 16 or older to sign up as a tester.',
+      e_name: 'Enter your full name.', e_birth: 'Enter your date of birth.', e_young: 'Sorry, you need to be 18 or older to sign up as a tester.',
       e_email: 'That doesn’t look like a valid email address.', e_c1: 'Tick the box to confirm you have an Android phone and a Google account.', e_c2: 'Tick the box to confirm the 14-day test.',
       e_c3: 'Please accept the privacy policy.', e_rate: 'Too many sign-ups from here. Please try again tomorrow.', e_net: 'Couldn’t send it. Please try again in a minute.',
       done_t: function (n) { return 'You’re in' + (n ? ', ' + n : '') + '!'; },
-      done_p: function (e) { return 'As soon as the closed test starts, we’ll send the invite to ' + e + '. Until then, follow us on TikTok and Instagram!'; },
+      done_p: function (e) { return 'The closed test is running! Within 1–2 days we’ll send the Google Play invite to ' + e + '. Until then, follow us on TikTok and Instagram!'; },
       back: 'Back to the homepage',
       cl_t: 'Sign-ups open soon', cl_p: 'The closed test starts soon. Enter your email and we’ll tell you as soon as you can sign up.', cl_done: 'You’re on the list! We’ll tell you as soon as you can sign up.',
       b_label: 'Email address', h_ph: 'Your email', h_btn: 'Notify me', b_ok: 'I’m 16 or older and I accept the <a href="privacy.html" target="_blank" rel="noopener">privacy policy</a>.', e_ok: 'Please tick the box to accept the privacy policy.',
       st_t: 'What happens next?', s1t: 'You sign up', s1: 'Fill in the form – about a minute.',
-      s2t: 'The invite arrives', s2: 'When the closed test starts, we email you the Google Play link.',
+      s2t: 'The invite arrives', s2: 'Within 1–2 days we email you the Google Play link.',
       s3t: 'Install and test', s3: 'Install it from the Play Store and use it for 14 days. If something’s off, tell us.',
       l_terms: 'Terms of use', l_privacy: 'Privacy', indep: 'Independent service, not affiliated with any brand.',
       title: 'Tester sign-up – VERDIKT Check'
@@ -110,7 +110,7 @@
   function showAge() {
     var b = birth();
     if (!b || b === 'bad') { ageEl.hidden = true; return; }
-    ageEl.hidden = false; ageEl.textContent = T[lang].age(b.age); ageEl.classList.toggle('young', b.age < 16);
+    ageEl.hidden = false; ageEl.textContent = T[lang].age(b.age); ageEl.classList.toggle('young', b.age < 18);
   }
   [ySel, mSel, dSel].forEach(function (s) { s.addEventListener('change', function () { s.classList.toggle('set', !!s.value); showAge(); }); });
 
@@ -149,7 +149,7 @@
     var b = birth();
     if (name.length < 3 || name.indexOf(' ') < 0 || /[<>@\d]/.test(name)) return err('e_name', $('#tf-name'));
     if (!b || b === 'bad') return err('e_birth', !ySel.value ? ySel : !mSel.value ? mSel : dSel);
-    if (b.age < 16) return err('e_young', ySel);
+    if (b.age < 18) return err('e_young', ySel);
     if (!/^[^\s@]{1,64}@[^\s@]+\.[a-z]{2,24}$/i.test(email) || email.length > 254) return err('e_email', $('#tf-email'));
     if (!$('#tf-c1').checked) return err('e_c1', $('#tf-c1'));
     if (!$('#tf-c2').checked) return err('e_c2', $('#tf-c2'));

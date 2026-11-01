@@ -200,18 +200,18 @@
     // Top of the page: "tell me when it's out". The box further down stays a tester sign-up.
     Object.assign(T.hu, { cta_tester: 'Értesíts az indulásról',
       b_k: 'Zárt teszt · Android', b_t: 'Legyél <span class="grad">tesztelő.</span>',
-      b_lead: 'Próbáld ki a VERDIKT Checket elsőként, még a megjelenés előtt. Töltsd ki a rövid jelentkezési lapot, és amint indul a zárt teszt, küldjük a meghívót.',
+      b_lead: 'A zárt teszt elindult! Próbáld ki a VERDIKT Checket elsőként, még a nyilvános megjelenés előtt. Töltsd ki a rövid jelentkezési lapot, és 1–2 napon belül küldjük a meghívót.',
       b_btn: 'Jelentkezem tesztelőnek',
       b_fine: 'Androidos telefon kell hozzá. Spamet nem küldünk: csak a tesztelői meghívót küldjük, és szólunk az induláskor. A címedet bármikor töröltetheted.',
-      b_done: 'Megvagy!', b_done_s: 'Amint indul a zárt teszt, küldjük a meghívót a megadott címre.',
+      b_done: 'Megvagy!', b_done_s: '1–2 napon belül küldjük a meghívót a megadott címre.',
       h_t: 'Kérj értesítést – szólunk, amint letölthető.', h_ph: 'E-mail-címed', h_btn: 'Értesíts', h_done: 'Feliratkoztál! Szólunk, amint letölthető.',
       h_alt: 'Vagy legyél tesztelő, és próbáld ki elsőként' });
     Object.assign(T.en, { cta_tester: 'Notify me at launch',
       b_k: 'Closed test · Android', b_t: 'Become a <span class="grad">tester.</span>',
-      b_lead: 'Try VERDIKT Check first, before it launches. Fill in the short application form and we’ll send you an invite as soon as the closed test starts.',
+      b_lead: 'The closed test has started! Try VERDIKT Check first, before the public launch. Fill in the short application form and we’ll send you an invite within 1–2 days.',
       b_btn: 'Sign me up as a tester',
       b_fine: 'You’ll need an Android phone. No spam: we only send the tester invite and tell you at launch. You can have your address deleted any time.',
-      b_done: 'You’re in!', b_done_s: 'We’ll send the invite to your address as soon as the closed test starts.',
+      b_done: 'You’re in!', b_done_s: 'We’ll send the invite to your address within 1–2 days.',
       h_t: 'Get notified – we’ll tell you when it’s out.', h_ph: 'Your email', h_btn: 'Notify me', h_done: 'You’re on the list! We’ll tell you when it’s out.',
       h_alt: 'Or become a tester and try it first' });
     T.hu.faq[6][1] = 'Hamarosan a Google Play-en, Androidra. <a href="#hsu">Kérj értesítést</a>, és szólunk, amint letölthető – vagy <a href="tesztelo.html">jelentkezz tesztelőnek</a>, és már előtte kipróbálhatod.';
