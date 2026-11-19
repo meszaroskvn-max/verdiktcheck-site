@@ -23,7 +23,7 @@
       app_k: 'Az app belülről', app_t: 'Pár koppintás, és <span class="grad">tudod, mit veszel.</span>',
       scan: 'AI-ELEMZÉS…', stamp: 'EREDETI ✓',
       s1t: 'Indíts egy ellenőrzést', s1: 'Válaszd ki, mit nézünk meg: cipő, pulóver, póló, kabát, táska, sapka vagy öv.',
-      s2t: 'Fotózd le a részleteket', s2: 'A fotózási segéd megmutatja, mit és hogyan fotózz: oldalnézet, talp, belső címke, logó.',
+      s2t: 'Fotózd le a részleteket', s2: 'A fotózási segéd megmutatja, mit és hogyan fotózz: oldalnézet, talp, belső címke, logó. PRO-val videót is adhatsz.',
       s3t: 'Megkapod a verdiktet', s3: 'Eredeti, minőségi vagy rossz minőségű replika – megbízhatósági százalékkal. Ha nem lehet biztosan dönteni, azt is megmondja.',
       s4t: 'Látod, mit talált', s4: 'Pontról pontra: címkék, varrások, kellékek – mi stimmel, és mi kérdéses.',
       s5t: 'Megtudod, mennyit ér', s5: 'Javasolt hirdetési ár, új és használt piaci ár, és hogy megéri-e a kért összeget.',
@@ -68,6 +68,23 @@
       foot_tag: 'Eredeti vagy replika? Derítsük ki.', indep: 'Független szolgáltatás, egyik márkával sem áll kapcsolatban.',
       nav_wr: 'Gardrób', nav_rt: 'Pontozás', nav_rk: 'Ranglista', nav_ws: 'Kívánságlista',
       bw_wr: 'GARDRÓB', bw_rk: 'RANGLISTA', bw_ws: 'KÍVÁNSÁG', bw_pf: 'PROFIL',
+      bw_vd: 'VIDEÓ', vd_k: 'Videós ellenőrzés', vd_t: 'Vedd körbe videón. <span class="grad">Még pontosabb ítélet.</span>',
+      vd_p: 'A fotók mellé videót is adhatsz: 10–20 másodperc alatt körbeveszed a cipőt, az app kiválasztja belőle a 6 legélesebb pillanatot, és az AI ezeket is átnézi. Maga a videó nem töltődik fel, csak a kiválasztott képkockák.',
+      vd_1: 'A 6 legélesebb pillanat, automatikusan', vd_2: 'Időbélyeggel látod, mit nézett meg', vd_3: 'A videó a telefonodon marad', vd_4: 'Felvétel vagy videó a galériából',
+      vd_w1: '6 képkocka a videóból', vd_w2: 'Verdikt', vd_w3: 'EREDETI · 94%', vd_w4: 'Videó: 6 kocka',
+      bw_nt: 'VERDI', nt_k: 'Értesítések · Verdi', nt_t: 'Verdi szól, <span class="grad">ha valami történik.</span>',
+      nt_p: 'A fejlécben Verdi, a cipődetektív ül, a piros szám pedig mutatja, hány új értesítésed van. Árzuhanás, ranglista, értékelés, barátkérés: minden egy helyen, és push nélkül is 60 napig visszanézheted. Koppints rá, és mindig máshogy reagál.',
+      nt_1: 'Minden értesítés egy helyen', nt_2: 'Szűrők: árak, ranglista, gardrób, barátok', nt_3: '60 napig visszanézhető, push nélkül is', nt_4: 'Verdi minden koppintásra máshogy reagál',
+      nt_w0: '2 órája', nt_w1: 'Feljebb léptél: #7 → #3', nt_w2: 'Dobogón vagy! Már csak 2 hely az első helyig.',
+      pf_5: 'Különleges PRO jelvény a profilképeden', pr_11: 'Videós ellenőrzés', pr_12: 'PRO jelvény', pr_13: 'Volt és Naplemente appikon',
+      ic_k: 'Appikonok', ic_t: '10 appikon. <span class="grad">Válaszd ki a kedvenced.</span>',
+      ic_p: 'Cseréld le a VERDIKT ikonját a telefonod kezdőképernyőjén. Nyisd meg az appot egymás után több napig, és sorra nyílnak meg az újabb ikonok – a Volt és a Naplemente a PRO-tagoké.',
+      ic_a1: 'Kamera', ic_a2: 'Galéria', ic_a3: 'Üzenetek', ic_a4: 'Naptár', ic_a5: 'Térkép', ic_a6: 'Zene', ic_a7: 'Időjárás', ic_a8: 'Beállítások',
+      ic_now: 'A kezdőképernyődön', ic_hint: 'Koppints egy ikonra, és nézd meg, hogyan mutat a telefonodon.',
+      ic_classic: 'Klasszikus', ic_paper: 'Árcédula', ic_neon: 'Neon', ic_holo: 'Hologram', ic_stamp: 'Pecsét', ic_cash: 'Bankó', ic_sole: 'Talp', ic_gold: 'Arany', ic_volt: 'Volt', ic_sunset: 'Naplemente',
+      ic_s1: 'Egymás után 5 napja nyitod meg a VERDIKT-et.', ic_s2: 'Még 2 nap, és a tiéd: Hologram',
+      ic_free: 'Alap', ic_d3: '3 nap', ic_d7: '7 nap', ic_d14: '14 nap', ic_d20: '20 nap', ic_d30: '30 nap', ic_d50: '50 nap',
+      ic_fine: 'Az új ikon akkor jelenik meg a kezdőképernyőn, amikor kilépsz az appból. Az ikonokat a Profil → Appikon menüben választhatod ki.',
       wr_k: 'Gardrób · portfólió', wr_t: 'Tudd, mennyit ér <span class="grad">a gardróbod.</span>',
       wr_p: 'Az eredetinek ítélt darabjaid egy helyen: becsült piaci érték, nyereség a vételárhoz képest és a legértékesebb darabod – értékgörbével, ami megmutatja, hogyan változik a gyűjteményed értéke.',
       wr_1: 'Becsült összérték egy pillantással', wr_2: 'Nyereség a vételárhoz képest', wr_3: 'A legértékesebb darabod kiemelve', wr_4: 'Értékgörbe és havi jelentés',
@@ -116,7 +133,7 @@
       app_k: 'Inside the app', app_t: 'A few taps and <span class="grad">you know what you’re buying.</span>',
       scan: 'AI CHECKING…', stamp: 'AUTHENTIC ✓',
       s1t: 'Start a check', s1: 'Pick what we’re looking at: shoes, hoodie, T-shirt, jacket, bag, cap or belt.',
-      s2t: 'Photograph the details', s2: 'The photo assistant shows what to shoot and how: side view, sole, inside label, logo.',
+      s2t: 'Photograph the details', s2: 'The photo assistant shows what to shoot and how: side view, sole, inside label, logo. With PRO you can add a video too.',
       s3t: 'Get the verdict', s3: 'Authentic, high-quality or low-quality replica – with a confidence score. If a reliable call isn’t possible, it tells you.',
       s4t: 'See what it found', s4: 'Point by point: labels, stitching, hardware – what matches and what’s questionable.',
       s5t: 'Find out what it’s worth', s5: 'A suggested listing price, new and used market prices, and whether the asking price is fair.',
@@ -161,6 +178,23 @@
       foot_tag: 'Authentic or replica? Let’s find out.', indep: 'Independent service, not affiliated with any brand.',
       nav_wr: 'Wardrobe', nav_rt: 'Ratings', nav_rk: 'Leaderboard', nav_ws: 'Wishlist',
       bw_wr: 'WARDROBE', bw_rk: 'RANKING', bw_ws: 'WISHLIST', bw_pf: 'PROFILE',
+      bw_vd: 'VIDEO', vd_k: 'Video check', vd_t: 'Circle it on video. <span class="grad">An even sharper verdict.</span>',
+      vd_p: 'Add a video next to your photos: circle the shoe in 10–20 seconds, the app picks the 6 sharpest moments, and the AI checks those too. The video itself is not uploaded, only the chosen frames.',
+      vd_1: 'The 6 sharpest moments, picked for you', vd_2: 'Timestamps show what it looked at', vd_3: 'The video stays on your phone', vd_4: 'Record or pick a video from your gallery',
+      vd_w1: '6 frames from the video', vd_w2: 'Verdict', vd_w3: 'AUTHENTIC · 94%', vd_w4: 'Video: 6 frames',
+      bw_nt: 'VERDI', nt_k: 'Notifications · Verdi', nt_t: 'Verdi tells you <span class="grad">when something happens.</span>',
+      nt_p: 'Verdi, the sneaker detective, sits in the header, and the red number shows how many new notifications you have. Price drops, leaderboard moves, ratings, friend requests: all in one place, and you can look back for 60 days even without push. Tap him and he reacts differently every time.',
+      nt_1: 'Every notification in one place', nt_2: 'Filters: prices, leaderboard, wardrobe, friends', nt_3: 'Kept for 60 days, even without push', nt_4: 'Verdi reacts differently to every tap',
+      nt_w0: '2 hours ago', nt_w1: 'You moved up: #7 → #3', nt_w2: 'You’re on the podium! Just 2 places to the top.',
+      pf_5: 'A special PRO badge on your profile picture', pr_11: 'Video check', pr_12: 'PRO badge', pr_13: 'Volt & Sunset app icons',
+      ic_k: 'App icons', ic_t: '10 app icons. <span class="grad">Pick your favourite.</span>',
+      ic_p: 'Change the VERDIKT icon on your phone’s home screen. Open the app several days in a row and new icons unlock one by one – Volt and Sunset are for PRO members.',
+      ic_a1: 'Camera', ic_a2: 'Gallery', ic_a3: 'Messages', ic_a4: 'Calendar', ic_a5: 'Maps', ic_a6: 'Music', ic_a7: 'Weather', ic_a8: 'Settings',
+      ic_now: 'On your home screen', ic_hint: 'Tap an icon to see how it looks on your phone.',
+      ic_classic: 'Classic', ic_paper: 'Price tag', ic_neon: 'Neon', ic_holo: 'Hologram', ic_stamp: 'Seal', ic_cash: 'Cash', ic_sole: 'Sole', ic_gold: 'Gold', ic_volt: 'Volt', ic_sunset: 'Sunset',
+      ic_s1: 'You’ve opened VERDIKT 5 days in a row.', ic_s2: '2 more days to unlock Hologram',
+      ic_free: 'Free', ic_d3: '3 days', ic_d7: '7 days', ic_d14: '14 days', ic_d20: '20 days', ic_d30: '30 days', ic_d50: '50 days',
+      ic_fine: 'The new icon appears on your home screen once you leave the app. Pick your icon under Profile → App icon.',
       wr_k: 'Wardrobe · portfolio', wr_t: 'Know what your <span class="grad">wardrobe is worth.</span>',
       wr_p: 'Your items rated authentic in one place: estimated market value, your gain vs. what you paid and your most valuable piece – with a value chart that shows how your collection’s value changes.',
       wr_1: 'Total estimated value at a glance', wr_2: 'Your gain vs. what you paid', wr_3: 'Your most valuable piece, highlighted', wr_4: 'Value chart and monthly report',
@@ -278,6 +312,7 @@
     $$('[data-i18n-attr]').forEach(function (el) { var v = L[el.getAttribute('data-i18n-attr')]; if (v) el.setAttribute('data-l', v); });
     $$('[data-count]').forEach(function (el) { el.textContent = fmtCount(el, el.__done ? 1 : 0); });
     ticker($('[data-ticker="t1"]'), L.t1); ticker($('[data-ticker="t2"]'), L.t2);
+    var icd = $('#ic-day'); if (icd) { try { icd.textContent = new Date().toLocaleDateString(l === 'hu' ? 'hu-HU' : 'en-GB', { weekday: 'long', month: 'long', day: 'numeric' }); } catch (e) { /* old browser */ } }
     faq(L);
     bubbleI = 0; setBubble();
     var msg = $('#su-msg'); if (msg) { msg.textContent = ''; msg.className = 'msg'; }
@@ -429,6 +464,30 @@
   if (card && !reduce && window.matchMedia('(hover:hover)').matches) {
     card.parentNode.addEventListener('pointermove', function (e) { var r = card.getBoundingClientRect(); var x = (e.clientX - r.left) / r.width - .5, y = (e.clientY - r.top) / r.height - .5; card.style.setProperty('--ty', (x * 22).toFixed(1) + 'deg'); card.style.setProperty('--tx', (-y * 16).toFixed(1) + 'deg'); });
     card.parentNode.addEventListener('pointerleave', function () { card.style.removeProperty('--ty'); card.style.removeProperty('--tx'); });
+  }
+
+  /* ---------- app icons: pick one and preview it on the home screen ---------- */
+  var icItems = $$('.ic-it'), icCur = $('#ic-cur'), icName = $('#ic-curname'), icMe = $('.ic-me'), icTouched = false, icTimer = null, icIdx = 0;
+  function icSet(i, user) {
+    var b = icItems[i]; if (!b) return; icIdx = i;
+    icItems.forEach(function (x, k) { x.classList.toggle('on', k === i); x.setAttribute('aria-checked', String(k === i)); });
+    var id = b.getAttribute('data-ic');
+    icCur.src = 'img/ai-' + id + '.webp';
+    icName.setAttribute('data-i18n', 'ic_' + id); icName.textContent = T[lang]['ic_' + id];
+    if (!reduce && icMe) { icMe.classList.remove('pop'); void icMe.offsetWidth; icMe.classList.add('pop'); }
+    if (user) { icTouched = true; clearInterval(icTimer); }
+  }
+  if (icItems.length && icCur) {
+    icItems.forEach(function (b, i) { b.addEventListener('click', function () { icSet(i, true); }); });
+    $('.ic-list').addEventListener('keydown', function (e) {
+      var d = { ArrowRight: 1, ArrowDown: 1, ArrowLeft: -1, ArrowUp: -1 }[e.key]; if (!d) return;
+      e.preventDefault(); var n = (icIdx + d + icItems.length) % icItems.length; icSet(n, true); icItems[n].focus();
+    });
+    // A slow tour through the icons while the section is on screen, until the visitor picks one.
+    if (!reduce && 'IntersectionObserver' in window) new IntersectionObserver(function (es) {
+      clearInterval(icTimer);
+      if (es[0].isIntersecting && !icTouched) icTimer = setInterval(function () { icSet((icIdx + 1) % icItems.length); }, 2200);
+    }, { threshold: .35 }).observe($('#icons'));
   }
 
   /* ---------- misc ---------- */
