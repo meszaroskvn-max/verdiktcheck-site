@@ -151,7 +151,7 @@
       <div class="show-copy">
         <ol class="steps" id="steps">
           <li class="step on"><em>01 / 06</em><h3 data-i18n="s1t">Indíts egy ellenőrzést</h3><p data-i18n="s1">Válaszd ki, mit nézünk meg: cipő, pulóver, póló, kabát, táska, sapka vagy öv.</p></li>
-          <li class="step"><em>02 / 06</em><h3 data-i18n="s2t">Fotózd le a részleteket</h3><p data-i18n="s2">A fotózási segéd megmutatja, mit és hogyan fotózz: oldalnézet, talp, belső címke, logó.</p></li>
+          <li class="step"><em>02 / 06</em><h3 data-i18n="s2t">Fotózd le a részleteket</h3><p data-i18n="s2">A fotózási segéd megmutatja, mit és hogyan fotózz: oldalnézet, talp, belső címke, logó. PRO-val videót is adhatsz.</p></li>
           <li class="step"><em>03 / 06</em><h3 data-i18n="s3t">Megkapod a verdiktet</h3><p data-i18n="s3">Eredeti, minőségi vagy rossz minőségű replika – megbízhatósági százalékkal. Ha nem lehet biztosan dönteni, azt is megmondja.</p></li>
           <li class="step"><em>04 / 06</em><h3 data-i18n="s4t">Látod, mit talált</h3><p data-i18n="s4">Pontról pontra: címkék, varrások, kellékek – mi stimmel, és mi kérdéses.</p></li>
           <li class="step"><em>05 / 06</em><h3 data-i18n="s5t">Megtudod, mennyit ér</h3><p data-i18n="s5">Javasolt hirdetési ár, új és használt piaci ár, és hogy megéri-e a kért összeget.</p></li>
@@ -177,6 +177,31 @@
       <div class="vcard v-inc rv d3"><span class="tag">VERDIKT</span><span class="vi"><svg viewBox="0 0 24 24" fill="none" stroke="#9FB2CC" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9.2 9a3 3 0 1 1 4.2 2.8c-.9.4-1.4 1.1-1.4 2.1v.4M12 17.5v.3"/></svg></span><div><b data-i18n="vi">NEM ELDÖNTHETŐ</b><p data-i18n="vi_s">A fotók alapján nem lehet felelősen dönteni – ezt is megmondjuk.</p></div></div>
     </div>
     <p class="note rv"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 11v5.5M12 7.8v.2"/></svg><span data-i18n="note">Az eredmény a fotóid alapján készült AI-becslés – nem hivatalos hitelesítés és nem garancia. Minél élesebbek és teljesebbek a fotók, annál pontosabb.</span></p>
+  </div>
+</section>
+
+<!-- ============ spotlight: video check ============ -->
+<section class="spot flip" id="video" style="--ac:#5E9BFF;--ac2:rgba(94,155,255,.13);--ac3:#C8F04A">
+  <div class="bgword" data-bx=".25" aria-hidden="true" data-i18n="bw_vd">VIDEÓ</div>
+  <div class="wrap spot-in">
+    <div class="spot-copy rv">
+      <span class="kicker" data-i18n="vd_k">Videós ellenőrzés</span>
+      <h2 class="h2 rv" data-i18n-html="vd_t">Vedd körbe videón. <span class="grad">Még pontosabb ítélet.</span></h2>
+      <p class="lead" data-i18n="vd_p">A fotók mellé videót is adhatsz: 10–20 másodperc alatt körbeveszed a cipőt, az app kiválasztja belőle a 6 legélesebb pillanatot, és az AI ezeket is átnézi. Maga a videó nem töltődik fel, csak a kiválasztott képkockák.</p>
+      <ul class="ticks"><li data-i18n="vd_1">A 6 legélesebb pillanat, automatikusan</li><li data-i18n="vd_2">Időbélyeggel látod, mit nézett meg</li><li data-i18n="vd_3">A videó a telefonodon marad</li><li><span data-i18n="vd_4">Felvétel vagy videó a galériából</span><span class="pro">PRO</span></li></ul>
+    </div>
+    <div class="spot-vis">
+      <div class="phone"><div class="screen"><img data-img="video" alt="" width="390" height="844" loading="lazy"></div></div>
+      <div class="wdg w-tr rv-pop" data-speed="-.06">
+        <small data-i18n="vd_w1">6 képkocka a videóból</small>
+        <img class="vstrip" src="img/vstrip.webp" alt="" width="280" height="59" loading="lazy">
+      </div>
+      <div class="wdg w-bl rv-pop" data-speed=".07">
+        <small data-i18n="vd_w2">Verdikt</small>
+        <b class="big" style="color:#C8F04A" data-i18n="vd_w3">EREDETI · 94%</b>
+        <span class="vchip" data-i18n="vd_w4">Videó: 6 kocka</span>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -276,15 +301,35 @@
   </div>
 </section>
 
+<!-- ============ spotlight: notifications (Verdi) ============ -->
+<section class="spot" id="notifs" style="--ac:#C8F04A;--ac2:rgba(200,240,74,.12);--ac3:#FFB020">
+  <div class="bgword" data-bx="-.25" aria-hidden="true" data-i18n="bw_nt">VERDI</div>
+  <div class="wrap spot-in">
+    <div class="spot-copy rv">
+      <span class="kicker" data-i18n="nt_k">Értesítések · Verdi</span>
+      <h2 class="h2 rv" data-i18n-html="nt_t">Verdi szól, <span class="grad">ha valami történik.</span></h2>
+      <p class="lead" data-i18n="nt_p">A fejlécben Verdi, a cipődetektív ül, a piros szám pedig mutatja, hány új értesítésed van. Árzuhanás, ranglista, értékelés, barátkérés: minden egy helyen, és push nélkül is 60 napig visszanézheted. Koppints rá, és mindig máshogy reagál.</p>
+      <ul class="ticks"><li data-i18n="nt_1">Minden értesítés egy helyen</li><li data-i18n="nt_2">Szűrők: árak, ranglista, gardrób, barátok</li><li data-i18n="nt_3">60 napig visszanézhető, push nélkül is</li><li data-i18n="nt_4">Verdi minden koppintásra máshogy reagál</li></ul>
+    </div>
+    <div class="spot-vis">
+      <div class="phone"><div class="screen"><img data-img="notifs" alt="" width="390" height="844" loading="lazy"></div></div>
+      <div class="wdg w-tl notif" data-speed="-.06">
+        <div class="notif-in"><i style="background:#FFC53D"><svg viewBox="0 0 24 24" fill="none" stroke="#0B0C0F" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8 4h8v5a4 4 0 0 1-8 0z"/><path d="M8 6H5a3 3 0 0 0 3 4M16 6h3a3 3 0 0 1-3 4M12 13v4M9 20h6"/></svg></i><div><small>VERDIKT Check · <span data-i18n="nt_w0">2 órája</span></small><b data-i18n="nt_w1">Feljebb léptél: #7 → #3</b><p data-i18n="nt_w2">Dobogón vagy! Már csak 2 hely az első helyig.</p></div></div>
+      </div>
+      <div class="wdg w-br verdi-peek" data-speed=".07" aria-hidden="true"><img src="img/verdi-wink.webp" alt="" width="360" height="227" loading="lazy"></div>
+    </div>
+  </div>
+</section>
+
 <!-- ============ spotlight: profile ============ -->
-<section class="spot" id="profile" style="--ac:#5E9BFF;--ac2:rgba(94,155,255,.12);--ac3:#C8F04A">
+<section class="spot flip" id="profile" style="--ac:#5E9BFF;--ac2:rgba(94,155,255,.12);--ac3:#C8F04A">
   <div class="bgword" data-bx="-.25" aria-hidden="true" data-i18n="bw_pf">PROFIL</div>
   <div class="wrap spot-in">
     <div class="spot-copy rv">
       <span class="kicker" data-i18n="pf_k">Profil</span>
       <h2 class="h2 rv" data-i18n-html="pf_t">A te profilod, <span class="grad">a te szabályaid.</span></h2>
       <p class="lead" data-i18n="pf_p">Felhasználónév, avatar és a saját statisztikáid: ellenőrzések, eredetik, gardrób. Te döntöd el, mi látszik – a fotód, a neved és a státuszod alapból rejtve marad. A meghívókódoddal pedig minden barát után mindketten 3 nap PRO-t kaptok.</p>
-      <ul class="ticks"><li data-i18n="pf_1">Felhasználónév és avatar</li><li data-i18n="pf_2">Ellenőrzések, eredetik, gardrób egy helyen</li><li data-i18n="pf_3">Láthatóság egyetlen kapcsolóval</li><li data-i18n="pf_4">Meghívókód: +3 nap PRO mindkettőtöknek</li></ul>
+      <ul class="ticks"><li data-i18n="pf_1">Felhasználónév és avatar</li><li data-i18n="pf_2">Ellenőrzések, eredetik, gardrób egy helyen</li><li data-i18n="pf_3">Láthatóság egyetlen kapcsolóval</li><li data-i18n="pf_4">Meghívókód: +3 nap PRO mindkettőtöknek</li><li><span data-i18n="pf_5">Különleges PRO jelvény a profilképeden</span><span class="pro">PRO</span></li></ul>
     </div>
     <div class="spot-vis">
       <div class="phone"><div class="screen"><img data-img="profile" alt="" width="390" height="844" loading="lazy"></div></div>
@@ -298,15 +343,70 @@
   </div>
 </section>
 
+<!-- ============ app icons: pick one, preview it on a home screen ============ -->
+<section class="sec icons" id="icons" aria-labelledby="ic-title">
+  <div class="ic-glow" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="sec-head center">
+      <span class="kicker rv" data-i18n="ic_k">Appikonok</span>
+      <h2 class="h2 rv d1" id="ic-title" data-i18n-html="ic_t">10 appikon. <span class="grad">Válaszd ki a kedvenced.</span></h2>
+      <p class="lead rv d2" data-i18n="ic_p">Cseréld le a VERDIKT ikonját a telefonod kezdőképernyőjén. Nyisd meg az appot egymás után több napig, és sorra nyílnak meg az újabb ikonok – a Volt és a Naplemente a PRO-tagoké.</p>
+    </div>
+    <div class="ic-grid">
+      <div class="ic-stage rv">
+        <div class="ic-phone" aria-hidden="true">
+          <div class="ic-screen">
+            <div class="ic-sb"><span>9:41</span><i class="ic-isl"></i><span class="ic-sig"><b></b><b></b><b></b><b></b></span></div>
+            <div class="ic-clock"><b>9:41</b><span id="ic-day">csütörtök</span></div>
+            <div class="ic-apps">
+              <span class="ic-app me"><i class="ic-me"><img id="ic-cur" src="img/ai-classic.webp" alt="" width="288" height="288"></i><em>VERDIKT</em></span>
+              <span class="ic-app"><i style="--a:#3A4458;--b:#262D3B"><svg viewBox="0 0 24 24"><path d="M4 8.5A2.5 2.5 0 0 1 6.5 6h1.8l1.4-2h4.6l1.4 2h1.8A2.5 2.5 0 0 1 20 8.5v8A2.5 2.5 0 0 1 17.5 19h-11A2.5 2.5 0 0 1 4 16.5z"/><circle cx="12" cy="12.5" r="3.4"/></svg></i><em data-i18n="ic_a1">Kamera</em></span>
+              <span class="ic-app"><i style="--a:#4B3F63;--b:#2E2740"><svg viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="14" rx="2.5"/><path d="M4.5 16.5l4.5-4.5 3.5 3.5 2.5-2.5 4.5 4.5"/><circle cx="15.5" cy="9.5" r="1.5"/></svg></i><em data-i18n="ic_a2">Galéria</em></span>
+              <span class="ic-app"><i style="--a:#2F5249;--b:#1D332D"><svg viewBox="0 0 24 24"><path d="M4 6.5A2.5 2.5 0 0 1 6.5 4h11A2.5 2.5 0 0 1 20 6.5v7a2.5 2.5 0 0 1-2.5 2.5H10l-4 4v-4h0a2 2 0 0 1-2-2z"/></svg></i><em data-i18n="ic_a3">Üzenetek</em></span>
+              <span class="ic-app"><i style="--a:#5A3B3B;--b:#382525"><svg viewBox="0 0 24 24"><rect x="4" y="5.5" width="16" height="14" rx="2.5"/><path d="M4 10h16M8.5 3.5v4M15.5 3.5v4"/></svg></i><em data-i18n="ic_a4">Naptár</em></span>
+              <span class="ic-app"><i style="--a:#30485E;--b:#1E2E3D"><svg viewBox="0 0 24 24"><path d="M12 21s6.5-5.6 6.5-11a6.5 6.5 0 0 0-13 0c0 5.4 6.5 11 6.5 11z"/><circle cx="12" cy="10" r="2.4"/></svg></i><em data-i18n="ic_a5">Térkép</em></span>
+              <span class="ic-app"><i style="--a:#5B3A52;--b:#392434"><svg viewBox="0 0 24 24"><path d="M9 17.5V6l10-2v11.5"/><circle cx="6.8" cy="17.5" r="2.3"/><circle cx="16.8" cy="15.5" r="2.3"/></svg></i><em data-i18n="ic_a6">Zene</em></span>
+              <span class="ic-app"><i style="--a:#3B4A5E;--b:#252F3D"><svg viewBox="0 0 24 24"><path d="M7.5 18.5h9a3.5 3.5 0 0 0 .4-7 5 5 0 0 0-9.7-1A4 4 0 0 0 7.5 18.5z"/></svg></i><em data-i18n="ic_a7">Időjárás</em></span>
+            </div>
+            <div class="ic-dock"><span class="ic-dot on"></span><span class="ic-dot"></span><span class="ic-dot"></span></div>
+          </div>
+        </div>
+        <div class="ic-name"><small data-i18n="ic_now">A kezdőképernyődön</small><b id="ic-curname" data-i18n="ic_classic">Klasszikus</b></div>
+      </div>
+      <div class="ic-panel rv d1">
+        <div class="ic-streak">
+          <span class="ic-fire" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 21c-3.9 0-7-2.8-7-6.6 0-3 1.8-5 3.6-6.8.4 1.9 1.5 3.1 2.6 3.6-.3-3.3 1.2-6.2 3.6-8.2.5 2.9 2.3 4.6 3.9 6.4 1.2 1.4 2.3 3 2.3 5 0 3.8-3.1 6.6-7 6.6z"/></svg></span>
+          <div class="ic-st-txt"><b data-i18n="ic_s1">Egymás után 5 napja nyitod meg a VERDIKT-et.</b><span data-i18n="ic_s2">Még 2 nap, és a tiéd: Hologram</span></div>
+          <div class="ic-bar" aria-hidden="true"><i style="width:71%"></i></div>
+        </div>
+        <p class="ic-hint" data-i18n="ic_hint">Koppints egy ikonra, és nézd meg, hogyan mutat a telefonodon.</p>
+        <div class="ic-list" role="radiogroup" aria-labelledby="ic-title">
+          <button type="button" class="ic-it on" role="radio" aria-checked="true" data-ic="classic"><span class="ic-img"><img src="img/ai-classic.webp" alt="" width="288" height="288" loading="lazy"></span><b data-i18n="ic_classic">Klasszikus</b><span class="ic-need free" data-i18n="ic_free">Alap</span></button>
+          <button type="button" class="ic-it" role="radio" aria-checked="false" data-ic="paper"><span class="ic-img"><img src="img/ai-paper.webp" alt="" width="288" height="288" loading="lazy"></span><b data-i18n="ic_paper">Árcédula</b><span class="ic-need free" data-i18n="ic_free">Alap</span></button>
+          <button type="button" class="ic-it" role="radio" aria-checked="false" data-ic="neon"><span class="ic-img"><img src="img/ai-neon.webp" alt="" width="288" height="288" loading="lazy"></span><b data-i18n="ic_neon">Neon</b><span class="ic-need" data-i18n="ic_d3">3 nap</span></button>
+          <button type="button" class="ic-it" role="radio" aria-checked="false" data-ic="holo"><span class="ic-img"><img src="img/ai-holo.webp" alt="" width="288" height="288" loading="lazy"></span><b data-i18n="ic_holo">Hologram</b><span class="ic-need" data-i18n="ic_d7">7 nap</span></button>
+          <button type="button" class="ic-it" role="radio" aria-checked="false" data-ic="stamp"><span class="ic-img"><img src="img/ai-stamp.webp" alt="" width="288" height="288" loading="lazy"></span><b data-i18n="ic_stamp">Pecsét</b><span class="ic-need" data-i18n="ic_d14">14 nap</span></button>
+          <button type="button" class="ic-it" role="radio" aria-checked="false" data-ic="cash"><span class="ic-img"><img src="img/ai-cash.webp" alt="" width="288" height="288" loading="lazy"></span><b data-i18n="ic_cash">Bankó</b><span class="ic-need" data-i18n="ic_d20">20 nap</span></button>
+          <button type="button" class="ic-it" role="radio" aria-checked="false" data-ic="sole"><span class="ic-img"><img src="img/ai-sole.webp" alt="" width="288" height="288" loading="lazy"></span><b data-i18n="ic_sole">Talp</b><span class="ic-need" data-i18n="ic_d30">30 nap</span></button>
+          <button type="button" class="ic-it" role="radio" aria-checked="false" data-ic="gold"><span class="ic-img"><img src="img/ai-gold.webp" alt="" width="288" height="288" loading="lazy"></span><b data-i18n="ic_gold">Arany</b><span class="ic-need" data-i18n="ic_d50">50 nap</span></button>
+          <button type="button" class="ic-it" role="radio" aria-checked="false" data-ic="volt"><span class="ic-img"><img src="img/ai-volt.webp" alt="" width="288" height="288" loading="lazy"></span><b data-i18n="ic_volt">Volt</b><span class="ic-need pro-n">PRO</span></button>
+          <button type="button" class="ic-it" role="radio" aria-checked="false" data-ic="sunset"><span class="ic-img"><img src="img/ai-sunset.webp" alt="" width="288" height="288" loading="lazy"></span><b data-i18n="ic_sunset">Naplemente</b><span class="ic-need pro-n">PRO</span></button>
+        </div>
+        <p class="ic-fine" data-i18n="ic_fine">Az új ikon akkor jelenik meg a kezdőképernyőn, amikor kilépsz az appból. Az ikonokat a Profil → Appikon menüben választhatod ki.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ============ spotlight: PRO ============ -->
-<section class="spot flip pro-spot" id="pro" style="--ac:#5E9BFF;--ac2:rgba(94,155,255,.16);--ac3:#C8F04A">
+<section class="spot pro-spot" id="pro" style="--ac:#5E9BFF;--ac2:rgba(94,155,255,.16);--ac3:#C8F04A">
   <div class="bgword" data-bx=".25" aria-hidden="true">PRO</div>
   <div class="wrap spot-in">
     <div class="spot-copy rv">
       <span class="kicker">VERDIKT PRO</span>
       <h2 class="h2 rv" data-i18n-html="pr_t">Minden funkció. <span class="grad">Korlátlanul.</span></h2>
       <p class="lead" data-i18n="pr_p">Korlátlan ellenőrzés és minden extra. Próbáld ki 3 napig ingyen – kártya nélkül, magától lejár.</p>
-      <div class="perks"><span data-i18n="pr_1">Korlátlan ellenőrzés</span><span data-i18n="pr_2">Ár-érték ítélet</span><span data-i18n="pr_3">Élő piaci ár</span><span data-i18n="pr_4">Árfigyelés</span><span data-i18n="pr_5">Értékgörbe</span><span data-i18n="pr_6">Hirdetés-ellenőrzés</span><span data-i18n="pr_7">Eladási ár + hirdetésíró</span><span data-i18n="pr_8">Tanúsítvány és megosztás</span><span data-i18n="pr_9">Napi márkatippek</span><span data-i18n="pr_10">Olcsóbban eredetit</span></div>
+      <div class="perks"><span data-i18n="pr_1">Korlátlan ellenőrzés</span><span data-i18n="pr_2">Ár-érték ítélet</span><span data-i18n="pr_3">Élő piaci ár</span><span data-i18n="pr_4">Árfigyelés</span><span data-i18n="pr_5">Értékgörbe</span><span data-i18n="pr_6">Hirdetés-ellenőrzés</span><span data-i18n="pr_7">Eladási ár + hirdetésíró</span><span data-i18n="pr_8">Tanúsítvány és megosztás</span><span data-i18n="pr_9">Napi márkatippek</span><span data-i18n="pr_10">Olcsóbban eredetit</span><span data-i18n="pr_11">Videós ellenőrzés</span><span data-i18n="pr_12">PRO jelvény</span><span data-i18n="pr_13">Volt és Naplemente appikon</span></div>
       <p class="credits" data-i18n="pr_cr">Nem kérsz előfizetést? Kreditekkel is mehet: 1, 3, 5 vagy 10 ellenőrzés.</p>
     </div>
     <div class="spot-vis">
