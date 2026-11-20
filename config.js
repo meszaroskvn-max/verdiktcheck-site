@@ -2,6 +2,10 @@
 window.SITE = {
   owner: 'Mészáros Kevin',                         // who runs the app (your name or company)
   email: 'support@verdiktcheck.com',               // contact email for users (support / data requests)
+  // Legal notice (impresszum) in terms.html. Leave '' until known – an empty line is not shown.
+  address: '',                                     // seat / place of business (or postal address) of the provider
+  regNumber: '',                                   // company or sole-trader registration number, if any
+  taxNumber: '',                                   // tax number (adószám), if any
   // For the certificate check page (verify.html) – the same two values as in GitHub Variables:
   supabaseUrl: 'https://vtiuuginymzhxndrmjxs.supabase.co', // SUPABASE_URL (public project address)
   anonKey: 'IDE_IRD_A_SUPABASE_ANON_KEY',          // SUPABASE_ANON_KEY (the public publishable key)
@@ -19,6 +23,7 @@ document.addEventListener('DOMContentLoaded', function () {
     if (k === 'email' && el.tagName === 'A') el.href = 'mailto:' + v;
     el.textContent = v;
   });
+  document.querySelectorAll('[data-site-row]').forEach(function (el) { el.hidden = !((window.SITE || {})[el.getAttribute('data-site-row')]); });
 });
 
 // Anonymous visit counter (no cookies, no IP stored): page, where the visitor came from and phone/computer.
